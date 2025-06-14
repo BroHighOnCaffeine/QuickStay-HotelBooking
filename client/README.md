@@ -10,3 +10,17 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+# Running the Project
+Go inside the client directory and run command
+npm run dev
+
+
+# Comments
+1. Creating a React Router for our Project.
+command : npm install react-router-dom
+
+2. Settin Up this Router.
+In main.jsx file, here we'll get the browser router from react router dom
+import {BrowserRouter} from 'react-router-dom'
