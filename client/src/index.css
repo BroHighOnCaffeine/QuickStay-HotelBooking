@@ -1,24 +1,26 @@
-/* Imporing Tailwind */
-@import "tailwindcss";
 
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 
+@import "tailwindcss";
 
 /* Adding colors */
 @theme {
   --color-primary: #2563EB ;
   --color-secondary : #FBBF24 ;
 
-}
+} 
+
 
 
 *{
   font-family: Outfit; 
 }
 
+
+
 .font-playfair{
-  font-family: Playfair !important;   
+  font-family: Playfair !important ;   
   /* important will overwrite the font Outfit when we'll use Playfair */
 }
 
