@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Components/Navbar'
-import { useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import Home from './pages/Home';
 
 const App = () => {
   // The Navbar will be displayed on all pages but is needed to be hidden from Owner 
@@ -9,13 +10,24 @@ const App = () => {
   const isOwnerPath = useLocation().pathname.includes("owner"); //This will return a Boolean
   // for value = True we'll hide Navbar.
 
- 
+//  Now we've to create the routing for Home Page.
 
 
   return (
     <div>
-      {!isOwnerPath && <Navbar/>}  
+
       {/* when ever we will be on Owner Path then this Navbar will be hidden */}
+      {!isOwnerPath && <Navbar/>}  
+
+
+        <div className='min-h-[70vh]'>
+          {/* within this div we've to create Route ; first import routes */}
+          <Routes>
+              <Route path='/' element={<Home/>} />
+          </Routes>
+
+          
+        </div>
     </div>
   )
 }
