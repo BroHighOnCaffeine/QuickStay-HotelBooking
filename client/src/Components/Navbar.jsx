@@ -46,7 +46,7 @@ const Navbar = () => {
         }
         setIsScrolled(prev => location.pathname !== '/' ? true : prev) // passing the previous value as parameter in this Setter Function.
 
-
+ 
 
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
