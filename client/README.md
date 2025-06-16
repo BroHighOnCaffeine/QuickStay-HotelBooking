@@ -24,3 +24,8 @@ command : npm install react-router-dom
 2. Settin Up this Router.
 In main.jsx file, here we'll get the browser router from react router dom
 import {BrowserRouter} from 'react-router-dom'
+
+
+# using Clerk
+USed clerk for user authentication using its api or Key.
+used for login/Sign up of User.

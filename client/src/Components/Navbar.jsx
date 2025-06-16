@@ -58,7 +58,7 @@ const Navbar = () => {
                             <div className={`${isScrolled ? "bg-gray-700" : "bg-white"} h-0.5 w-0 group-hover:w-full transition-all duration-300`} />
                         </a>
                     ))}
-                    <button className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${isScrolled ? 'text-black' : 'text-white'} transition-all`}>
+                    <button  className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${isScrolled ? 'text-black' : 'text-white'} transition-all`}  onClick={()=>navigate('/owner')}>
                         Dashboard
                     </button>
                 </div>
@@ -82,8 +82,19 @@ const Navbar = () => {
 
                 </div>
 {/* This will open navigation drawer since the page is responsive. */}
-                {/*Menu Button */} 
+                {/*Menu Menu Button */} 
+
+                {/* only when user is available , this user button component will be displayed */}
+
                 <div className="flex items-center gap-3 md:hidden">
+
+                    {user && <UserButton>
+                        <UserButton.MenuItems>
+                            <UserButton.Action label="My Bookings" labelIcon={<BookIcon/>} onClick={()=>navigate('/my-bookings')} />
+                        </UserButton.MenuItems>
+                    </UserButton>} 
+
+
                     <img onClick={()=> setIsMenuOpen(!isMenuOpen)} src={assets.menuIcon} alt="menu-Icon" className={`${isScrolled && "invert"} h-4`} />
                 </div>
 
@@ -100,13 +111,18 @@ const Navbar = () => {
                         </a>
                     ))}
 
-                    <button className="border px-4 py-1 text-sm font-light rounded-full cursor-pointer transition-all">
-                        DashBoard
-                    </button>
+                    {/* When the user is available then the dashboard button will be available */}
 
-                    <button  onClick={openSignIn} className="bg-black text-white px-8 py-2.5 rounded-full transition-all duration-500">
+                  { user && <button className="border px-4 py-1 text-sm font-light rounded-full cursor-pointer transition-all" onClick={()=>navigate('/owner')}>
+                        DashBoard
+                    </button>}
+                    {/* WHen the button will be clicked it will take us to the owner's DashBoard  */}
+
+
+                    {/* This Login Button will be visible when the user will be Logged Out. */}
+                   { !user && <button  onClick={openSignIn} className="bg-black text-white px-8 py-2.5 rounded-full transition-all duration-500">
                         Login
-                    </button>
+                    </button>}
                 </div>
             </nav>
       
