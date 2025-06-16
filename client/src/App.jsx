@@ -20,6 +20,10 @@ const App = () => {
       {!isOwnerPath && <Navbar/>}  
 
 
+
+
+
+
         <div className='min-h-[70vh]'>
           {/* within this div we've to create Route ; first import routes */}
           <Routes>
