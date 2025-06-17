@@ -1,7 +1,7 @@
 import React from "react";
 import { assets } from "../assets/assets";
 
-// Now we will mount this star rating component in the Testimonial Component.
+// Now we will mount this star rating component in the Testimonial Component
 
 const StarRating = ({ rating = 4 }) => {
   return (
