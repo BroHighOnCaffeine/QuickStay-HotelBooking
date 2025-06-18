@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Footer from "./Components/Footer";
+import AllRooms from "./pages/AllRooms";
 
 const App = () => {
   // The Navbar will be displayed on all pages but is needed to be hidden from Owner
@@ -22,6 +23,7 @@ const App = () => {
         {/* within this div we've to create Route ; first import routes */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/rooms" element={<AllRooms />} />
         </Routes>
       </div>
       <Footer/>
