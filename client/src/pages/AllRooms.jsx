@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { assets, facilityIcons, roomsDummyData } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import StarRating from "../Components/StarRating";
 
+// Creating a Component - CheckBox
+const CheckBox = ({ label, selected = false, onChange = () => {} }) => {
+  return (
+    <label className="flex gap-3 items-center cursor-pointer mt-2 text-sm">
+      <input
+        type="checkBox"
+        checked={selected}
+        onChange={(e) => onChange(e.target.checked, label)}
+      />
+      {/* e means event */}
+      <span className="font-light selected-none">{label}</span>
+    </label>
+  );
+};
+
 const AllRooms = () => {
+  const roomTypes = ["Single Bed", "Double Bed", "Luxury Room", "Family Suite"];
+
+  const priceRange = [
+    "O to 500",
+    "500 to 1000",
+    "1000 to 2000",
+    "2000 to 3000",
+  ];
+  const sortOptions = [
+    "price Low to High",
+    "price High to Low",
+    "Newest First",
+  ];
+
   const navigate = useNavigate();
+
+  //   Now we have to hide the whole filter Section [column 2] in SmallerScreen [i.e. Mobile Screen] so we will first create a "state variable" for it . 👇🏻
+  const [openFilters, setOpenFilters] = useState(false); //State Variable
+
   return (
     <div className="flex flex-col-reverse lg:flex-row items-start justify-between pt-28 md:pt-35 px-4 md:px-16 1g:px-24 x1:px-32">
       {/* we will divide this Page into two Parts - left and Right  */}
@@ -73,7 +106,9 @@ border-b border-gray-300 last:pb-30 last:border-0"
                 ))}
               </div>
               {/* Room Price Per Night  */}
-              <p className="txt-xl font-medium text-gray-700" >Rs. {room.pricePerNight} /night</p>
+              <p className="txt-xl font-medium text-gray-700">
+                Rs. {room.pricePerNight} /night
+              </p>
             </div>
           </div>
         ))}
@@ -87,20 +122,41 @@ border-b border-gray-300 last:pb-30 last:border-0"
       </p> */}
 
       {/* For Left Side [It will Contain Filters] */}
-      <div className='bg-white w-80 border border-gray-300 text-gray-600 max-1g:mb-8 min-1g:mt-16'>
-        <div>
-            <p className="text-base font-medium text-gray-800" >FILTERS</p>
-            <div className="text-xs cursor-pointer">
-                <span className="lg:hidden">HIDE</span> 
-                {/* This will be hidden on LARGE SCreen and Displayed only on smaller screen 👆🏻 */}
+      <div className="bg-white w-80 border border-gray-300 text-gray-600 max-1g:mb-8 min-1g:mt-16">
+        <div
+          className={`flex items-center justify-between px-5 py-2.5 min-1g:border-b border-gray-300  ${
+            openFilters && "border-b"
+          }`}
+        >
+          <p className="text-base font-medium text-gray-800">FILTERS</p>
+          <div className="text-xs cursor-pointer">
+            <span
+              onClick={() => setOpenFilters(!openFilters)}
+              className="lg:hidden"
+            >
+              {openFilters ? "HIDE" : "SHOW"}
+            </span>
+            {/* This will be hidden on LARGE SCreen and Displayed only on smaller screen 👆🏻 */}
 
-                {/* This CLEAR will be displayed on the bigger screen[i.e. Desktop view] and we can hide it using filter.👇🏻 */}
-                <span className="hidden lg:block">CLEAR</span>
-            </div>
-
-
+            {/* This CLEAR will be displayed on the bigger screen[i.e. Desktop view] and we can hide it using filter.👇🏻 */}
+            <span className="hidden lg:block">CLEAR</span>
+          </div>
         </div>
 
+        {/* Here We will display the Filter-Options */}
+        <div
+          className={`${
+            openFilters ? "h-auto" : "h-0 lg:h-auto"
+          } overflow-hidden transition-all duration-700`}
+        >
+          {/* This is will be displayed when the OpenFilter is already open Or Opendup[Mobile] */}
+
+          <div className="px-5 pt-5">
+            <p className="font-medium text-gray-800 pb-2">Popular Filters</p>
+
+            {/* We will keep the FilterOption in an Array and use the CheckBox Component also we'll need the Radio Buttons*/}
+          </div>
+        </div>
       </div>
     </div>
   );
