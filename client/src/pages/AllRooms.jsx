@@ -18,6 +18,22 @@ const CheckBox = ({ label, selected = false, onChange = () => {} }) => {
   );
 };
 
+// Adding another Component RadioButton
+const RadioButton = ({ label, selected = false, onChange = () => {} }) => {
+  return (
+    <label className="flex gap-3 items-center cursor-pointer mt-2 text-sm">
+      <input
+        type="radio"
+        name="sortOption"
+        checked={selected}
+        onChange={(e) => onChange(label)}
+      />
+      {/* e means event */}
+      <span className="font-light selected-none">{label}</span>
+    </label>
+  );
+};
+
 const AllRooms = () => {
   const roomTypes = ["Single Bed", "Double Bed", "Luxury Room", "Family Suite"];
 
@@ -153,9 +169,28 @@ border-b border-gray-300 last:pb-30 last:border-0"
 
           <div className="px-5 pt-5">
             <p className="font-medium text-gray-800 pb-2">Popular Filters</p>
+            {roomTypes.map((room, index)=>(
+                <CheckBox key={index} label={room}/>
+            ))}
 
             {/* We will keep the FilterOption in an Array and use the CheckBox Component also we'll need the Radio Buttons*/}
           </div>
+          
+          <div className="px-5 pt-5">
+            <p className="font-medium text-gray-800 pb-2">Price Range</p>
+            {priceRange.map((range , index)=>(
+                <CheckBox key={index} label={`$ ${range}`}/>
+            ))}
+          </div>
+
+          <div className="px-5 pt-5 pb-7">
+            <p className="font-medium text-gray-800 pb-2">Sort by</p>
+            {sortOptions.map((option , index)=>(
+                <RadioButton key={index} label={option} />
+            ))}
+          </div>
+
+
         </div>
       </div>
     </div>
