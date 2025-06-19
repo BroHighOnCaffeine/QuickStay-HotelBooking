@@ -73,20 +73,35 @@ border-b border-gray-300 last:pb-30 last:border-0"
                 ))}
               </div>
               {/* Room Price Per Night  */}
-              <p className="txt-xl font-medium text-gray-700"  >Rs. {room.pricePerNight} /night</p>
+              <p className="txt-xl font-medium text-gray-700" >Rs. {room.pricePerNight} /night</p>
             </div>
           </div>
         ))}
       </div>
-      <h1>Hotel Rooms</h1>
+
+      {/* <h1>Hotel Rooms</h1>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui aperiam
         optio facilis aliquam corrupti odit quo! Labore modi, consequuntur
         quidem placeat ipsam velit.
-      </p>
+      </p> */}
 
       {/* For Left Side [It will Contain Filters] */}
-      <div></div>
+      <div className='bg-white w-80 border border-gray-300 text-gray-600 max-1g:mb-8 min-1g:mt-16'>
+        <div>
+            <p className="text-base font-medium text-gray-800" >FILTERS</p>
+            <div className="text-xs cursor-pointer">
+                <span className="lg:hidden">HIDE</span> 
+                {/* This will be hidden on LARGE SCreen and Displayed only on smaller screen 👆🏻 */}
+
+                {/* This CLEAR will be displayed on the bigger screen[i.e. Desktop view] and we can hide it using filter.👇🏻 */}
+                <span className="hidden lg:block">CLEAR</span>
+            </div>
+
+
+        </div>
+
+      </div>
     </div>
   );
 };
