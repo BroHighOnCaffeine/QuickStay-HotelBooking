@@ -13,7 +13,7 @@ const RoomDetails = () => {
 
   // First we will find Rooms in this Function
   useEffect(() => {
-    const room = roomsDummyData.find((rooms.image) => room._id === id);
+    const room = roomsDummyData.find((room) => room._id === id);
 
     // Now we will  use a setter function to set this room in the state(room) created above.
     room && setRoom(room);
