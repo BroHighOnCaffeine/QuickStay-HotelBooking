@@ -13,7 +13,7 @@ const RoomDetails = () => {
 
   // First we will find Rooms in this Function
   useEffect(() => {
-    const room = roomsDummyData.find((room) => room._id === id);
+    const room = roomsDummyData.find((rooms.image) => room._id === id);
 
     // Now we will  use a setter function to set this room in the state(room) created above.
     room && setRoom(room);
@@ -23,9 +23,9 @@ const RoomDetails = () => {
 
   return (
     room && ( // Here "room &&" means wheh room data  will be available then only return div
-      <div className="py-28 md:py-35 px-4 md:px-16 1g:px-24 x1:px-32">
+      <div className="px-6 md:py-35 md:px-16 lg:px-24 xl:px-32">
         {/* Room Details */}
-        <div className="flex flex-col md:flex-row items-start md: items-center gap-2">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-2">
           <h1 className="text-3x] md:text-4xl font-playfair">
             {room.hotel.name}{" "}
             <span className="font-inter text-sm">({room.roomType})</span>{" "}
@@ -49,7 +49,7 @@ const RoomDetails = () => {
 
         {/* Room Images */}
         <div className="flex flex-col lg:flex-row mt-6 gap-6">
-          <div className=" lg:w-1/2 w-full">
+          <div className=" w-full lg:w-1/2">
             <img
               src={mainImage}
               alt="Room Image"
@@ -58,7 +58,7 @@ const RoomDetails = () => {
           </div>
 
           {/* displaying other images */}
-          <div className="grid grid-cols-2 gap-4 1g:w-1/2 w-full">
+          <div className="grid grid-cols-2 gap-4 lg:w-1/2 w-full">
             {room?.images.length > 1 &&
               room.images.map((image, index) => (
                 <img
@@ -73,6 +73,8 @@ const RoomDetails = () => {
               ))}
           </div>
         </div>
+
+        <div className="flex flex-col md:flow-row md:justify-between mt-10"></div>
       </div>
     )
   );
