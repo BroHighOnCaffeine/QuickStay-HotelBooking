@@ -76,26 +76,69 @@ const RoomDetails = () => {
 
         {/* ROOM HIGHLIGHTS */}
         <div className=" flex flex-col md:flex-row  md:justify-between mt-10">
-            <div className="flex flex-col ">
-                <h1 className="text-3xl md:text-4xl font-playfair">Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>
-                {/* Here We'll display Ameneties */}
-                <div className="flex flex-wrap items-center mt-3 mb-6 gap-4 ">
-                    {room.amenities.map((item , index)=>(
-                        <div key={index} className="flex items-center gap-2px-3 py-2 rounded-lg bg-gray-100">
-                            {/* This👆🏻 Div is converted into a flexbox. */}
-                            <img src={facilityIcons[item]} alt={item} className="w-5 h-5" />
-                            <p className="text-xs">{item}</p>
-
-                        </div>
-                    ))}
-                    {/* Here, This aminities is a array so we are map method */}
-
+          <div className="flex flex-col ">
+            <h1 className="text-3xl md:text-4xl font-playfair">
+              Lorem ipsum dolor sit amet, consectetur adipisicing.
+            </h1>
+            {/* Here We'll display Ameneties */}
+            <div className="flex flex-wrap items-center mt-3 mb-6 gap-4 ">
+              {room.amenities.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2px-3 py-2 rounded-lg bg-gray-100"
+                >
+                  {/* This👆🏻 Div is converted into a flexbox. */}
+                  <img
+                    src={facilityIcons[item]}
+                    alt={item}
+                    className="w-5 h-5"
+                  />
+                  <p className="text-xs">{item}</p>
                 </div>
+              ))}
+              {/* Here, This aminities is a array so we are map method */}
             </div>
-            {/* Room Price */}
-            <p className="text-2xl font-medium" >Rs.{room.pricePerNight}/night</p>
-
+          </div>
+          {/* Room Price */}
+          <p className="text-2xl font-medium">Rs.{room.pricePerNight}/night</p>
         </div>
+
+        {/* CheckIn CheckOut From */}
+        <form className="flex flex-col md:flex-row items-start md:items-center justify-between bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.15)] p-6 rounded-xl mx-auto mt-16 max-w-6xl"> 
+
+          {/* Input Fields [on the left side] */}
+          <div className='flex flex-col flex-wrap md:flex-row items-start md:items-center gap-4 md:gap-10 text-gray-500'>
+            {/* First Column */}
+            <div className="flex flex-col">
+              <label htmlFor="checkInDate" className="font-medium">Check-In</label>
+              <input type="date" id="checkInDate" placeholder="Check-In" className='w-full rounded border border-gray-300 px-3 py-2 mt-1.5 outline-none' required/>
+            </div>
+
+              {/* adding vertical lines between these diff. div */}
+            <div className='w-px h-15 bg-gray-300/70 max-md:hidden'></div>
+
+            {/* Second Column */}
+             <div className="flex flex-col">
+              <label htmlFor="checkOutDate" className="font-medium">Check-Out</label>
+              <input type="date" id="checkOutDate" placeholder="Check-Out" className='w-full rounded border border-gray-300 px-3 py-2 mt-1.5 outline-none' required/>
+            </div>
+
+            {/* adding vertical lines between these diff. div */}
+            <div className='w-px h-15 bg-gray-300/70 max-md:hidden'></div>
+
+            {/* Third Column */}
+             <div className="flex flex-col">
+              <label htmlFor="guests" className="font-medium">Guests</label>
+              <input type="number" id="guests" placeholder="0" 
+              className="max-w-20 rounded border border-gray-300 px-3 py-2 mt-1.5 outline-none" required/>
+            </div>
+
+
+          </div>
+
+          {/* buttons [on the rifght side ] */}
+          <button type="submit" className="bg-primary hover:bg-primary-dull active:scale-95 transition-all text-white rounded-md max-md:w-full max-md: mt-6 md: px-25 py-3 md:py-4 text-base cursor-pointer" >Check Availability</button>
+        </form>
       </div>
     )
   );
