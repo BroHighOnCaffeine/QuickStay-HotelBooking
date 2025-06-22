@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import AllRooms from "./pages/AllRooms";
 import RoomDetails from "./pages/RoomDetails";
 import Mybooking from "./pages/Mybooking";
+import HotelReg from "./Components/HotelReg";
 
 const App = () => {
   // The Navbar will be displayed on all pages but is needed to be hidden from Owner
@@ -20,6 +21,8 @@ const App = () => {
     <div>
       {/* when ever we will be on Owner Path then this Navbar will be hidden */}
       {!isOwnerPath && <Navbar />}
+     {false && <HotelReg/>}
+
 
       <div className="min-h-[70vh]">
         {/* within this div we've to create Route ; first import routes */}
@@ -28,6 +31,7 @@ const App = () => {
           <Route path="/rooms" element={<AllRooms />} />
           <Route path="/rooms/:id" element={<RoomDetails/>} />
           <Route path="/my-bookings" element={<Mybooking />} />
+
         </Routes>
       </div>
       <Footer/>
