@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Footer from "./Components/Footer";
 import AllRooms from "./pages/AllRooms";
 import RoomDetails from "./pages/RoomDetails";
+import Mybooking from "./pages/Mybooking";
 
 const App = () => {
   // The Navbar will be displayed on all pages but is needed to be hidden from Owner
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<AllRooms />} />
           <Route path="/rooms/:id" element={<RoomDetails/>} />
+          <Route path="/my-bookings" element={<Mybooking />} />
         </Routes>
       </div>
       <Footer/>
