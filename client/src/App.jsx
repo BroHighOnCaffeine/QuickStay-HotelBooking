@@ -8,6 +8,9 @@ import RoomDetails from "./pages/RoomDetails";
 import Mybooking from "./pages/Mybooking";
 import HotelReg from "./Components/HotelReg";
 import Layout from "./pages/hotelOwner/Layout";
+import Dashboard from "./pages/hotelOwner/Dashboard";
+import AddRoom from "./pages/hotelOwner/AddRoom";
+import ListRoom from "./pages/hotelOwner/ListRoom";
 
 const App = () => {
   // The Navbar will be displayed on all pages but is needed to be hidden from Owner
@@ -35,6 +38,9 @@ const App = () => {
 
           {/* Creating new Route for -  */}
           <Route path="/owner" element={<Layout/>} >
+          <Route index element={<Dashboard/>} />
+          <Route path="add-room" element={<AddRoom/>} />
+          <Route path="list-room" element={<ListRoom/>} />
 
           </Route>
 

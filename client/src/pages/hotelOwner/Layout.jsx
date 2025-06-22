@@ -12,7 +12,7 @@ const Layout = () => {
         <div className='flex h-full'>
             <Sidebar/>
 
-            {/* due to property flex-1 it will use the entire space available and it will be displayed in the right side. */}
+            {/* due to property flex-1 it will use the entire space available and it will be displayed in the right side */}
             <div className='flex-1 p-4 pt-10 md:px-10 h-full'>
                 <Outlet/>
             </div>
