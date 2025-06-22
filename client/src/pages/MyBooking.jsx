@@ -78,9 +78,14 @@ const Mybooking = () => {
                         <div className={`h-3 w-3 rounded-full ${booking.isPaid ? "bg-green-500" : "bg-red-500"}`}>
                         </div>
                         <p className={`text-sm ${booking.isPaid ? "text-green-500" : "text-red-500"}`}>{booking.isPaid ? "Paid" : "Unpaid"} </p>
-                        
-
                     </div>
+
+                    {/*  adding Button for unpaid Bookings */}
+
+                    {/* Not of Booking is Paid i.e. Unpaid bookings */}
+                  {!booking.isPaid && (
+                    <button className="px-4 py-1.5 mt-4 text-xs border border-gray-400 rounded-full hover:bg-gray-50 transition-all cursor-pointer">Pay Now</button>
+                  )}
                     
                 </div>
 
