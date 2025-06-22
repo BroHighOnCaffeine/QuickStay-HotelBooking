@@ -202,6 +202,26 @@ const RoomDetails = () => {
           </p>
         </div>
 
+                  {/* Hosted By Section */}
+                  {/* Here will display the owner details. */}
+                 <div className="flex flex-col items-start gap-4">
+                  <div className="flex gap-4 mt-10">
+                    <img src={room.hotel.owner.image} alt="Host"  className='h-14 w-14 md:h-18 md:w-18 rounded-full' />
+
+                    {/* Owner NAme */}
+                    <div>
+                      <p className="text-lg md:text-xl">Hosted By- {room.hotel.name}</p>
+                      {/* Star Rating */}
+                      <div className="flex items-center mt-1">
+                        <StarRating/>
+                        <p className="ml-2">200+ reviews</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                 </div>
+
       </div>
     )
   );
