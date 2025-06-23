@@ -2,10 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "main": "server.js",
-  "type" : "module",
-
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
     "start": "node server.js"
   },
   "keywords": [],
@@ -20,5 +19,8 @@
     "mongoose": "^8.16.0",
     "multer": "^2.0.1",
     "svix": "^1.67.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
