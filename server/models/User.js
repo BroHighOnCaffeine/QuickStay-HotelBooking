@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose, { Schema } from "mongoose";
 
 // To store any data in the database we will store it through models
 
@@ -10,8 +10,7 @@ const userSchema = mongoose.Schema({
     image: {type: String, required : true} ,
     role: {type: String, enum : ["user" , "hotelOwner"], default:"user"} ,
     recentSearchedCities: [{type : String , required: true}],
-},
-{timestamps : true})
+},{timestamps : true})
 
 // Now we will Create a User Model
 
