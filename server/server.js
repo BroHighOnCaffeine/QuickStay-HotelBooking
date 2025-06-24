@@ -3,6 +3,7 @@ import "dotenv/config"
 import cors from "cors"
 import connectDB from "./configs/db.js"
 import { clerkMiddleware } from '@clerk/express'
+import clerkWebhooks from "./controllers/clerkWebhooks.js"
 
 
 connectDB()
@@ -19,6 +20,7 @@ app.use(clerkMiddleware())
 
 
 
+// First API End-Point
 //req - request and res - response .
 app.get('/', (req ,res) => res.send("API is working."))
 
