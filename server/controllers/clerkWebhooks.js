@@ -26,7 +26,7 @@ const clerkWebhooks = async (req, res)=>{
         // we will store this above created "data" in this "userdata" in a strucute that we have created in the UserData file
         const userdata = {
             _id : data._id,
-            email : data.email_addresses[0].email_addresses,
+            email : data.email_addresses[0].email_address,
             username : data.first_name + " " + data.last_name,
             image : data.image_url,
         }
@@ -36,7 +36,7 @@ const clerkWebhooks = async (req, res)=>{
         // SWITCH Case for different Events.
         switch (type) {
             case "user.created" : {
-                await User.create();
+                await User.create(userdata);
                  break;
             }
 
@@ -46,7 +46,7 @@ const clerkWebhooks = async (req, res)=>{
              }
 
              case "user.deleted" : {
-                await User.findByIdAndDeleteId(data.id);
+                await User.findByIdAndDelete(data.id);
                  break;
              }
                 
@@ -62,7 +62,7 @@ const clerkWebhooks = async (req, res)=>{
 
     } catch(error){
         console.log(error.message);
-        res.json( {success : false, message :  error.message});
+        res.json( {success: false, message:  error.message});
     }
 
 };

@@ -13,13 +13,13 @@ const app = express()
 app.use(cors())  // Enable Cross origin Resource Sharing
 // This will help in connect frontend with the backend
 
+// one more middleware - all requests will be passed using json method.
 app.use(express.json())
 
 // Adding ClerkMiddle ware
 app.use(clerkMiddleware())
 
-// API for Clerk WebHooks
-// Now using clerkWebhooks function we will create An API Endpoint in Server.js File
+// API to Listen Clerk WebHooks
 app.use("/api/clerk" , clerkWebhooks);
 
 
