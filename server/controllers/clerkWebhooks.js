@@ -1,6 +1,6 @@
 import React from 'react'
 import User from "../models/User.js" ;
-import {Webhook} from svix ;
+import {Webhook} from "svix" ;
 
 // Now we have to create this ClerkWebHook Function from where wee will get the user data.
 
