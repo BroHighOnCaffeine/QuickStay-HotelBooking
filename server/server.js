@@ -5,7 +5,7 @@ import connectDB from "./configs/db.js"
 import { clerkMiddleware } from '@clerk/express'
 import clerkWebhooks from "./controllers/clerkWebhooks.js"
 
-
+// Calling the ConnectDB() function
 connectDB()
 
 // Creating an app using Express
