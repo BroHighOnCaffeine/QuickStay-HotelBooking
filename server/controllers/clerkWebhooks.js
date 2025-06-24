@@ -4,7 +4,7 @@ import {Webhook} from svix ;
 
 // Now we have to create this ClerkWebHook Function from where wee will get the user data.
 
-const clerkWebhooks = asyn (req, res)=>{ 
+const clerkWebhooks = async (req, res)=>{ 
 
     try{
         // Create a SVIX instance with ClerkWebHook Secret

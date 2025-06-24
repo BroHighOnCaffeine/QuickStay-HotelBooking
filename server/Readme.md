@@ -34,3 +34,5 @@ So in our backend we need to integrate Clerk
 # Storing Data in DataBase
 To store any data in the database we will store it through models
 
+
+// Now we can access the clerkWebhook at URl - /api/clerk and we have to provide the url in the Dashboard
