@@ -21,6 +21,16 @@ In terminal write  - "npm install --save-dev nodemon"
 Then in Package.json 
 change the 7th line from "start" : "sfbhaefw f  wnefw ef",
  to  "server" : "nodemon server.js",
- 
+
  So ,whenever we will use serve the it will execute this script nodemon server.js
+
+# Clerk in Backend
+
+We are getting our user data from Clerk.
+So in our backend we need to integrate Clerk
+
+
+
+# Storing Data in DataBase
+To store any data in the database we will store it through models
 

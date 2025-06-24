@@ -1,15 +1,26 @@
 import express from "express"
 import "dotenv/config"
 import cors from "cors"
+import connectDB from "./configs/db.js"
+import { clerkMiddleware } from '@clerk/express'
+
+
+connectDB()
 
 // Creating an app using Express
 const app = express()
-// Enable Cross origin Resource Sharing
-app.use(cors()) // this will help in connect frontend with the backend
+app.use(cors())  // Enable Cross origin Resource Sharing
+// This will help in connect frontend with the backend
+
+app.use(express.json())
+
+// Adding ClerkMiddle ware
+app.use(clerkMiddleware())
+
 
 
 //req - request and res - response .
-app.get('/', (req ,res) => res.send("API is working fine."))
+app.get('/', (req ,res) => res.send("API is working."))
 
 
 // For Port Number
