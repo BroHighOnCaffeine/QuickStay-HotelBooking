@@ -18,6 +18,9 @@ app.use(express.json())
 // Adding ClerkMiddle ware
 app.use(clerkMiddleware())
 
+// API for Clerk WebHooks
+// Now using clerkWebhooks function we will create An API Endpoint in Server.js File
+app.use("/api/clerk" , clerkWebhooks)
 
 
 // First API End-Point
