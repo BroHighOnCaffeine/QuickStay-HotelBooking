@@ -8,7 +8,7 @@ const clerkWebhooks = async (req, res)=>{
 
     try{
         // Create a SVIX instance with ClerkWebHook Secret
-        const whook = new Webhook(process.env,CLERK_WEBHOOK_SECRET);
+        const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
 
         // Getting Headers
         const headers = {
