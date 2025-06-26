@@ -32,11 +32,16 @@ const clerkWebhooks = async (req, res)=>{
 
         }
 
+        console.log(type, data);
+        
         // This Switch Case will execute the code based on different events "types" . we are reciving events types in "types" of this line  // Getting data from Request BODy
 
         // SWITCH Case for different Events.
+
         switch (type) {
             case "user.created" : {
+              console.log("Hello1");
+              
                 await User.create(userData);
                  break;
             }
