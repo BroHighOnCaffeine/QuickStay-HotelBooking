@@ -25,7 +25,7 @@ const clerkWebhooks = async (req, res)=>{
 
         // we will store this above created "data" in this "userdata" in a strucute that we have created in the UserData file
         const userData = {
-            _id : data._id,
+            _id : data.id,
             email : data.email_addresses[0].email_address,
             username : data.first_name + " " + data.last_name,
             image : data.image_url,
