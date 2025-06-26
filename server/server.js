@@ -20,7 +20,7 @@ app.use(express.json())
 app.use(clerkMiddleware())
 
 // API to Listen Clerk WebHooks
-app.use("/api/clerk" , clerkWebhooks);
+app.use("/api/clerk", clerkWebhooks);
 
 
 // First API End-Point

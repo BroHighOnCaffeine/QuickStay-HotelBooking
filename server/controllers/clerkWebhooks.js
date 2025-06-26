@@ -13,22 +13,23 @@ const clerkWebhooks = async (req, res)=>{
         // Getting Headers
         const headers = {
             "svix-id":req.headers["svix-id"],
-            "svix-timestanp":req.headers["svix-timestamp"],
-            "svix-signature":req.headers["svix-signature"],
+            "svix-timestamp":req.headers["svix-timestamp"],
+            "svix-signature":req.headers["svix-signature"]
         };
 
         // Verifying Headers
         await whook.verify(JSON.stringify(req.body), headers)
 
         // Getting data from Request BODy
-        const {data,type} =  req.body
+        const {data, type} =  req.body
 
         // we will store this above created "data" in this "userdata" in a strucute that we have created in the UserData file
-        const userdata = {
+        const userData = {
             _id : data._id,
             email : data.email_addresses[0].email_address,
             username : data.first_name + " " + data.last_name,
             image : data.image_url,
+
         }
 
         // This Switch Case will execute the code based on different events "types" . we are reciving events types in "types" of this line  // Getting data from Request BODy
@@ -36,12 +37,12 @@ const clerkWebhooks = async (req, res)=>{
         // SWITCH Case for different Events.
         switch (type) {
             case "user.created" : {
-                await User.create(userdata);
+                await User.create(userData);
                  break;
             }
 
              case "user.updated" : {
-                await User.findByIdAndUpdate(data.id , userdata);
+                await User.findByIdAndUpdate(data.id , userData);
                  break;
              }
 
@@ -50,13 +51,13 @@ const clerkWebhooks = async (req, res)=>{
                  break;
              }
                 
-               
         
             default:
                 break;
+
         }
 
-        res.json({success: true, message : "WebHook Received" }) ;
+        res.json({success: true, message: "WebHook Received" }) ;
 
 
 
@@ -65,7 +66,7 @@ const clerkWebhooks = async (req, res)=>{
         res.json( {success: false, message:  error.message});
     }
 
-};
+}
 
 export default clerkWebhooks ;
 

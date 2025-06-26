@@ -42,5 +42,5 @@ To store any data in the database we will store it through models
 # Saving User's account's actions in the database using Clerk and Vercel
 From now if new user is created or updated or deleted it will be stored in  the database by using clerck and vercel.
 
-<!-- From now if new user is created or updated or deleted it will be stored in  the database by using clerck and vercel. -->
+<!-- From now if new user is created or updated or deleted it will be stored in  the database by using clerk and vercel. -->
 
