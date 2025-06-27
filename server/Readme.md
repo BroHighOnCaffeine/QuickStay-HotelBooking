@@ -44,3 +44,14 @@ From now if new user is created or updated or deleted it will be stored in  the 
 
 <!-- From now if new user is created or updated or deleted it will be stored in  the database by using clerk and vercel. -->
 
+
+# Api Created for Users
+files - userController.js and userRoutes.js
+
+
+# Api for Hotel
+Create API for hotel to store hotels-data in the database
+
+
+
+
