@@ -4,6 +4,7 @@ import cors from "cors"
 import connectDB from "./configs/db.js"
 import { clerkMiddleware } from '@clerk/express'
 import clerkWebhooks from "./controllers/clerkWebhooks.js"
+import userRouter from "./routes/userRoutes.js"
 
 // Calling the ConnectDB() function
 connectDB()
@@ -26,6 +27,11 @@ app.use("/api/clerk", clerkWebhooks);
 // First API End-Point
 //req - request and res - response .
 app.get('/', (req ,res) => res.send("API is working."))
+
+
+// Created the first route
+app.use('/api/user', userRouter)
+// Now when we'll hit this api endpoint we will get the userData such as - role , SearchedCities
 
 
 // For Port Number
