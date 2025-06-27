@@ -40,22 +40,22 @@ const clerkWebhooks = async (req, res)=>{
 
         switch (type) {
             case "user.created" : {
-              console.log("Check Message - User Created ");
+              console.log("Check Message - User ID Created ");
               
                 await User.create(userData);
                  break;
             }
 
              case "user.updated" : {
-                console.log("Check Message - User Created ");
+                console.log("Check Message - User ID Updated ");
 
                 await User.findByIdAndUpdate(data.id , userData);
                  break;
              }
 
              case "user.deleted" : {
-                console.log("Check Message - User Created ");
-                
+                console.log("Check Message - User ID Deleted ");
+
                 await User.findByIdAndDelete(data.id);
                  break;
              }
