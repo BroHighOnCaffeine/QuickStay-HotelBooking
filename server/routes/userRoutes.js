@@ -8,6 +8,8 @@ const userRouter = express.Router();
 userRouter.get('/', protect, getUserData)
 // Protect is a middleware function
 
+userRouter.post('/store-recent-search', protect, getUserData)
+
 
 export default userRouter ;
 
