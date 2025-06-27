@@ -33,7 +33,7 @@ app.get('/', (req ,res) => res.send("API is working."))
 app.use('/api/user', userRouter)
 // Now when we'll hit this api endpoint we will get the userData such as - role , SearchedCities
 
-// Creating another EndPoint for hotels
+// Creating another EndPoint for hotels - for when new hotel is registered
 app.use('/api/hotels', hotelRouter)
 
 
