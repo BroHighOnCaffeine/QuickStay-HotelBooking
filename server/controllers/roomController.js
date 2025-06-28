@@ -1,4 +1,5 @@
 import Hotel from "../models/Hotel";
+import {v2 as cloudinary} from "cloudinary";
 
 
 // API to create a new Room for Hotel
@@ -11,8 +12,17 @@ export const createRoom = async (req, res) => {
             return res.json({success:false , message : "No Hotel Found"});
             
         } 
-        
-   
+
+        // Upload images to cloudinary
+        const uploadImages = req.files.map(async (file)=>{
+           const response =  await cloudinary.uploader.upload(file.path);
+        //    From response we will get a secure URL and we will return this URl
+
+            return response.secure_url;
+        })
+
+        // Wait for all upload to complete
+   const images = await Promise.all(uploadImages)
     } catch (error) {
         
     }
