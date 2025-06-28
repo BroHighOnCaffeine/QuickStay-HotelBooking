@@ -30,7 +30,7 @@ export const createRoom = async (req, res) => {
                 await Room.create({
                     hotel : hotel._id,
                     roomType,
-                    pricePerNight: +pricePerNight ,
+                    pricePerNight: +pricePerNight , //here we added "+" because we will et the price in string format and the plus will convert it in the number
                     amenities: JSON.parse(amenities),
                     images
                 })
