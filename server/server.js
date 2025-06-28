@@ -10,7 +10,9 @@ import connectCloudinary from "./configs/cloudinary.js"
 
 // Calling the ConnectDB() function
 connectDB()
-connectCloudinary()
+
+connectCloudinary();
+// This will connect our Project with Cloudinary
 
 // Creating an app using Express
 const app = express()
