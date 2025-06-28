@@ -1,5 +1,6 @@
-import Hotel from "../models/Hotel";
+import Hotel from "../models/Hotel.js";
 import {v2 as cloudinary} from "cloudinary";
+import Room from "../models/Room.js";
 
 
 // API to create a new Room for Hotel
@@ -22,9 +23,21 @@ export const createRoom = async (req, res) => {
         })
 
         // Wait for all upload to complete
-   const images = await Promise.all(uploadImages)
+        const images = await Promise.all(uploadImages)
+
+
+         //    Now we can Store the data in the data base using Room Model
+                await Room.create({
+                    hotel : hotel._id,
+                    roomType,
+                    pricePerNight: +pricePerNight ,
+                    amenities: JSON.parse(amenities),
+                    images
+                })
+                res.josn({success:true , message:"Room Created Successfully"})
+
     } catch (error) {
-        
+         res.josn({success:false , message: error.message})
     }
 
 }
