@@ -6,9 +6,11 @@ import { clerkMiddleware } from '@clerk/express'
 import clerkWebhooks from "./controllers/clerkWebhooks.js"
 import userRouter from "./routes/userRoutes.js"
 import hotelRouter from "./routes/hotelRoutes.js"
+import connectCloudinary from "./configs/cloudinary.js"
 
 // Calling the ConnectDB() function
 connectDB()
+connectCloudinary()
 
 // Creating an app using Express
 const app = express()
