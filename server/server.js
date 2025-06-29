@@ -40,6 +40,9 @@ app.use('/api/user', userRouter)
 // Creating another EndPoint for hotels - for when new hotel is registered
 app.use('/api/hotels', hotelRouter)
 
+// 
+app.use('/api/rooms', roomRouter)
+
 
 // For Port Number
 const PORT = process.env.PORT || 3000 ;

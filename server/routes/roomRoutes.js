@@ -9,5 +9,6 @@ roomRouter.post('/' , upload.array("images" , 4), protect, createRoom ) // Field
 // upload and protect is a MiddleWare
 // And createRoom is a Controller Function .
 
+export default roomRouter ;
 
 // Now we need to mount this Route in the Server.js File
