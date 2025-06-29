@@ -60,3 +60,6 @@ export const getOwnerRooms = async (req, res) => {
 export const toggleRoomAvailability = async (req, res) => {
     
 }
+
+
+// Now we will create a Route using this Controller Function 
