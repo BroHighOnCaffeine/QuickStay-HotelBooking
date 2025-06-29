@@ -45,6 +45,25 @@ export const createRoom = async (req, res) => {
 
 // API to get All Rooms
 export const getRooms = async (req, res) => {
+
+    try {
+        // Here it will find the room where isAvailable Property is True and slo it will add the hotel in it . Instead of just adding the hotel id it will add the entire hotel data
+      const rooms =  await Room.find({isavailable : true}).populate({
+        path:'hotel',
+        populate: {
+            path:'owner', // this will add the owner Image data in the room data
+            select:'image'
+        }
+      }).sort({createdAt : -1 }) //this sort the room based on the creation date 
+
+      res.json({success: true , rooms}); // It will return rooms so we can display it in the FrontEnd
+
+        
+    } catch (error) {
+
+        res.json({success: false , meassage : error.message});
+        
+    }
     
 }
 
