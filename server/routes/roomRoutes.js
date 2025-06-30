@@ -26,3 +26,5 @@ export default roomRouter ;
 // Now we have created 4 different EndPoints using 4 different Controller Functions
 
 // Now we need to mount this Route in the Server.js File
+
+// Till Now Features are completed for Adding Rooms and Getting the Rooms Data
