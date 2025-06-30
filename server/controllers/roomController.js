@@ -102,6 +102,7 @@ export const toggleRoomAvailability = async (req, res) => {
         
     }
 }
+// Now using this controller function we will create different routes
 
 
 // Now we will create a Route using this Controller Function 
