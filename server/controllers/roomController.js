@@ -88,7 +88,19 @@ export const getOwnerRooms = async (req, res) => {
 
 // API to toggle availability of a Room
 export const toggleRoomAvailability = async (req, res) => {
-    
+    try {
+        const {roomId} = req.body;
+        const roomData = await Room.findById(roomId) ;
+
+        // Now we have to Toggle the isAvailable Property
+        roomData.isAvailable = !roomData.isAvailable; //if roomdata is availabel it will make it flase and if it is already false the it will make it True
+        await roomData.save();
+
+        res.json({success:true , message: "Room Availability Updated"});
+    } catch (error) {
+        res.json({success:fasle , message: error.message});
+        
+    }
 }
 
 
