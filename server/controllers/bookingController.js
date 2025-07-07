@@ -20,3 +20,23 @@ const checkAvailability = async ({checkInDate ,checkOutDate, room})=>{   // we w
 }
 
 //Now we need to create the controller function which will listen to the API Call.
+
+
+// API to check Avalibility of room
+
+// - This API EndPoint will we using POST method
+// Post /api/bookings/check-availability
+
+export const checkAvailabilityAPI = async (req, res)=>{
+
+    try {
+        const {room, checkInDate , checkOutDate } = req.body ;
+        const isAvailable = await checkAvailability({checkInDate , checkOutDate , room});
+        res.json({success : true , isAvailable});
+        
+    } catch (error) {
+        res.json({success : false , message : error.message});
+        
+    }
+
+}
