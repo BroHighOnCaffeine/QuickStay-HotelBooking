@@ -18,3 +18,5 @@ const checkAvailability = async ({checkInDate ,checkOutDate, room})=>{   // we w
     }
 
 }
+
+//Now we need to create the controller function which will listen to the API Call.
