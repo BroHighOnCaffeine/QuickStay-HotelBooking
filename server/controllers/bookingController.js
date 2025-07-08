@@ -97,3 +97,12 @@ export const createBooking = async (req,res)=>{
         res.json({success : false , message: "Booking Failed!" }) ;
     }
     }
+
+
+    
+    // API to get all Bookings for a User
+
+    // Creating a New Controller Function
+    // GET /api/bookings/user
+
+    
