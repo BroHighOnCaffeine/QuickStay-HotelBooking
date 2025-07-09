@@ -102,7 +102,23 @@ export const createBooking = async (req,res)=>{
     
     // API to get all Bookings for a User
 
-    // Creating a New Controller Function
-    // GET /api/bookings/user
+    // Creating a New Controller Function -- API End Point
+    // GET /api/bookings/user 
 
-    
+    export const getUserBookings = async (req,res) => {
+        try {
+            const user = req.user._id ;
+            const bookings = await Booking.find({user}).populate("room hotel").sort({createdAt: -1})
+            res.json({success: true , bookings})
+            
+        } catch (error) {
+               res.json({success: false , message: "Failed to Fetch Bookings"});
+        }
+    }
+
+
+    // .populate()  -  The .populate() function is a method provided by Mongoose, which is an Object Data Modeling (ODM) library 
+    //                 for MongoDB and Node.js. It's used to automatically replace the specified paths in a document with
+    //                 documents from other collections.
+
+ 
