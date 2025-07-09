@@ -1,4 +1,5 @@
 import Booking from "../models/Booking.js"
+import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js"
 
 
@@ -100,7 +101,7 @@ export const createBooking = async (req,res)=>{
 
 
     
-    // API to get all Bookings for a User
+    // API to get all Bookings for a "User"
 
     // Creating a New Controller Function -- API End Point
     // GET /api/bookings/user 
@@ -122,3 +123,36 @@ export const createBooking = async (req,res)=>{
     //                 documents from other collections.
 
  
+
+    // Creating New API Endpoint to get Booking Details For a Particular "Hotel Owner"
+
+    export const getHotelBookings = async (req, res) => {
+       try {
+         const hotel = await Hotel.findOne({owner: req.auth.userId});
+        if(!hotel){
+            return res.json({success: false , message:"No Hotel Found !"})
+        }
+
+            // Now if the Hotel is Available then we have to find the Bookings For the PArticular Hotel
+            const bookings = await Booking.find({hotel : hotel._id}).populate("room hotel user").sort({createdAt: -1});
+            // In this bookings we will get the compelete details of room hotel and user
+
+            //Calculating the Total Number of Bookings
+            // Total Bookings
+            const totalBookings = bookings.length ;
+ 
+            // Total Revenue
+            const totalRevenue = bookings.reduce((acc, booking)=>acc + booking.totalPrice , 0)
+            
+
+            // Now Sending the Response
+            res.json({success: true , dashboardData: {totalBookings , totalRevenue, bookings}})
+
+       } catch (error) {
+        res.json({success: false , message:"Failed to Fetch Bookings"})
+        
+       }
+        
+
+    }
+
