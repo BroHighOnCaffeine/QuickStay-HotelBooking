@@ -26,3 +26,6 @@ bookingRouter.get('/user', protect  , getUserBookings  );
 // To get the Booking Detials for particular Hotel Owner 
 bookingRouter.get('/hotel', protect  , getHotelBookings  );
 //                (  Path  , middleware , ControllerFunction)
+
+
+export default bookingRouter;
