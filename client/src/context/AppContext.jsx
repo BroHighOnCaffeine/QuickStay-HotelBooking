@@ -27,12 +27,28 @@ export const AppProvider = ({ children }) => {
     const [isOwner, setIsOwner] = useState(false)
     const [showHotelReg, setShowHotelReg] = useState(false)
 
+
+    // Now we Create Some Functions and using these Functions we'll FETCH the users and check the user roles also
+    const fetchUser = async ()=>{
+        try {
+            const {data} = await axios.get('/api/user'  ,  {headers: {Authorization:`Bearer ${await getToken() }`}} )  //On this API-EndPoint we'll get the user Data
+                                         //(Api-Endpoint Path,  Headers)
+            
+            // Now we'll Check This Data
+            if(data.success){
+                setIsOwner(data.role === "hotelOwner")  //Checking the Role
+            }
+            
+        } catch (error) {
+            
+        }
+    }
+
         // object
         const value ={
             currency , navigate, user, getToken, isOwner, setIsOwner, axios, showHotelReg, setShowHotelReg 
             // Here we've Provided axios so that we can can access axios through AppContext.jsx File
         }
-
     return (
             <AppContext.Provider value={value} >
                 {children}
