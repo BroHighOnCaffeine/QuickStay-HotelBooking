@@ -29,7 +29,8 @@ export const AppProvider = ({ children }) => {
 
         // object
         const value ={
-            
+            currency , navigate, user, getToken, isOwner, setIsOwner, axios, showHotelReg, setShowHotelReg 
+            // Here we've Provided axios so that we can can access axios through AppContext.jsx File
         }
 
     return (
