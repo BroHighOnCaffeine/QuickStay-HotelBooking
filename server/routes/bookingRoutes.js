@@ -29,3 +29,4 @@ bookingRouter.get('/hotel', protect  , getHotelBookings  );
 
 
 export default bookingRouter;
+// Now adding this router in Server.js File

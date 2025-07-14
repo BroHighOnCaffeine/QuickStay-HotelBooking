@@ -8,6 +8,7 @@ import userRouter from "./routes/userRoutes.js"
 import hotelRouter from "./routes/hotelRoutes.js"
 import connectCloudinary from "./configs/cloudinary.js"
 import roomRouter from "./routes/roomRoutes.js"
+import bookingRouter from "./routes/bookingRoutes.js"
 
 // Calling the ConnectDB() function
 connectDB()
@@ -43,6 +44,9 @@ app.use('/api/hotels', hotelRouter)
 
 // 
 app.use('/api/rooms', roomRouter)
+
+
+app.use('/api/bookings', bookingRouter)
 
 
 // For Port Number
