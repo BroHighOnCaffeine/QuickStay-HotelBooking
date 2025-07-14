@@ -149,10 +149,13 @@ export const createBooking = async (req,res)=>{
             res.json({success: true , dashboardData: {totalBookings , totalRevenue, bookings}})
 
        } catch (error) {
-        res.json({success: false , message:"Failed to Fetch Bookings"})
+        res.json({success: false , message: "Failed to Fetch Bookings"})
         
        }
         
 
     }
 
+
+
+    // Now using these Controller Functions we will create Different API EndPoints
