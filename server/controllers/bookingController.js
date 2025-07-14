@@ -159,3 +159,4 @@ export const createBooking = async (req,res)=>{
 
 
     // Now using these Controller Functions we will create Different API EndPoints
+    // So we will create different API Routes
