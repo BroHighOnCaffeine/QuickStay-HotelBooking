@@ -1,7 +1,7 @@
 // Storing the booking data in the database.
 
 import mongoose from "mongoose";
-import Hotel from "./Hotel";
+import Hotel from "./Hotel.js";
 
 const bookingSchema = new mongoose.Schema(
   {
