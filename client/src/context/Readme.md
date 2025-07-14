@@ -1,0 +1,1 @@
+ In this Context Folder we will store all the Central LOGIC , State Variable and Functions That will be used in Entire Web Application
