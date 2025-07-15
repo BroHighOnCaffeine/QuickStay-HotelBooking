@@ -52,6 +52,7 @@ export const AppProvider = ({ children }) => {
             
         } catch (error) {
             // displaying the Toast Notification
+            toast.error(error.message)
             
         }
     }
