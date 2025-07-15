@@ -27,6 +27,9 @@ export const AppProvider = ({ children }) => {
     const [isOwner, setIsOwner] = useState(false)
     const [showHotelReg, setShowHotelReg] = useState(false)
 
+    // State Variable for Recent Searched Cities
+    const [searchedCities, setSearchedCities] = useState([])
+
 
     // Now we Create Some Functions and using these Functions we'll FETCH the users and check the user roles also
     const fetchUser = async ()=>{
@@ -37,6 +40,9 @@ export const AppProvider = ({ children }) => {
             // Now we'll Check This Data
             if(data.success){
                 setIsOwner(data.role === "hotelOwner")  //Checking the Role
+                setSearchedCities(data.recentSearchedCities) // We are getting the data Through the API
+            }else{
+                
             }
             
         } catch (error) {
