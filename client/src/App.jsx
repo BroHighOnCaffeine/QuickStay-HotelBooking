@@ -11,6 +11,7 @@ import Layout from "./pages/hotelOwner/Layout";
 import Dashboard from "./pages/hotelOwner/Dashboard";
 import AddRoom from "./pages/hotelOwner/AddRoom";
 import ListRoom from "./pages/hotelOwner/ListRoom";
+import {Toster} from 'react-hot-toast'
 
 const App = () => {
   // The Navbar will be displayed on all pages but is needed to be hidden from Owner
@@ -23,6 +24,7 @@ const App = () => {
 
   return (
     <div>
+      <Toster/>
       {/* when ever we will be on Owner Path then this Navbar will be hidden */}
       {!isOwnerPath && <Navbar />}
      {false && <HotelReg/>}

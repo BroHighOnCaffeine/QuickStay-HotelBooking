@@ -42,10 +42,15 @@ export const AppProvider = ({ children }) => {
                 setIsOwner(data.role === "hotelOwner")  //Checking the Role
                 setSearchedCities(data.recentSearchedCities) // We are getting the data Through the API
             }else{
-                
+                // Retry fetching User Details after 5 sec.
+                setTimeout( ()=>{
+                    fetchUser()
+                }, 5000 )
+
             }
             
         } catch (error) {
+            // displaying the Toast Notification
             
         }
     }
