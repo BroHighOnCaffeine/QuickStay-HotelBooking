@@ -4,6 +4,7 @@ import axios from "axios" ;
 import { createContext, useContext, useState } from "react";
 import { useNavigate, useNavigation } from "react-router-dom";
 import { useUser, useAuth } from "@clerk/clerk-react";
+import {toast} from "react-hot-toast";
 
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 // Now we've BackEnd Url in FrontEnd and we can the Backend url from any file as we've it in AppContext.jsx file
