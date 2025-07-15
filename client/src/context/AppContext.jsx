@@ -1,7 +1,7 @@
 // In this Context Folder we will store all the Central LOGIC , State Variable and Functions That will be used in Entire Web Application
 
 import axios from "axios" ;
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate, useNavigation } from "react-router-dom";
 import { useUser, useAuth } from "@clerk/clerk-react";
 import {toast} from "react-hot-toast";
@@ -57,9 +57,21 @@ export const AppProvider = ({ children }) => {
         }
     }
 
+
+// whenever the user gets changed then only this function will be executed
+    useEffect( ()=>{
+        if (user){
+            fetchUser();       //Function Calling - Above created function is called here
+                              // after this func. call we get the details about user ,like setSearchedCities, setIsOwner
+        }
+    },[user] )  // Here the array is k/a Dependency Array
+
         // object
         const value ={
-            currency , navigate, user, getToken, isOwner, setIsOwner, axios, showHotelReg, setShowHotelReg 
+            currency , navigate, user, getToken, isOwner, setIsOwner,
+            axios,
+            showHotelReg, setShowHotelReg,
+            searchedCities, setSearchedCities
             // Here we've Provided axios so that we can can access axios through AppContext.jsx File
         }
     return (
