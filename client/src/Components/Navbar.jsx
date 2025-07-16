@@ -201,9 +201,9 @@ const {user, navigate, isOwner, setShowHotelReg } = useAppContext()
         {user && (
           <button
             className="border px-4 py-1 text-sm font-light rounded-full cursor-pointer transition-all"
-            onClick={() => navigate("/owner")}
+            onClick={() => isOwner ? navigate("/owner") : setShowHotelReg(true)}
           >
-            DashBoard
+            { isOwner ? 'Dashboard' : 'List Your Hotel' } 
           </button>
         )}
         {/* WHen the button will be clicked it will take us to the owner's DashBoard  */}
