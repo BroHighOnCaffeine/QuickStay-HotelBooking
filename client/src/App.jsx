@@ -31,7 +31,8 @@ const App = () => {
       <Toster/>
       {/* when ever we will be on Owner Path then this Navbar will be hidden */}
       {!isOwnerPath && <Navbar />}
-     {false && <HotelReg/>}  
+     {showHotelReg && <HotelReg/>}  
+     {/* If this is True then it will display HotelReistration Component */}
 
       <div className="min-h-[70vh]">
         {/* within this div we've to create Route ; first import routes */}
