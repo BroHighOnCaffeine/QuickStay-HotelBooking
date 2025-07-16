@@ -110,9 +110,9 @@ const {user, navigate, isOwner, setShowHotelReg } = useAppContext()
           } transition-all`}
           onClick={() => isOwner ? navigate("/owner") : setShowHotelReg(true)}
           // Using this 'user' we will display different Events for This Button, 
-          // If it's Owner Then it will navigate to owner Dashboard else show a Registration Form.
+          // If it's Owner Then it will navigate to owner Dashboard else show a Registration Form - [setShowHotelReg]
           >
-            
+
           { isOwner ? 'Dashboard' : 'List Your Hotel'} 
           {/* Here we will check isOwner Property , If it is True then Text DashBoard will Appear else List Your Hotel will Appear*/}
         </button> 
