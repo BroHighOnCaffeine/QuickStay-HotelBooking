@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { useClerk, useUser, UserButton } from "@clerk/clerk-react";
+import { useClerk, UserButton } from "@clerk/clerk-react";
+import { useAppContext } from "../context/AppContext";
 
 const BookIcon = () => (
   <svg
@@ -36,9 +37,12 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { openSignIn } = useClerk();
-  const { user } = useUser();
-  const navigate = useNavigate();
+  // const { user } = useUser();    // Getting these data from Context
+  // const navigate = useNavigate();
   const location = useLocation();
+
+//  Getting the data from Context File.
+const {user, navigate } = useAppContext()
 
   // Scroll Effect of background on NAVBAR in HomePage.
   //this effect must be only valid for HomePage and on rest of the Pages it must appear with White Background.
