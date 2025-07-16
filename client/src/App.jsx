@@ -12,6 +12,7 @@ import Dashboard from "./pages/hotelOwner/Dashboard";
 import AddRoom from "./pages/hotelOwner/AddRoom";
 import ListRoom from "./pages/hotelOwner/ListRoom";
 import {Toster} from 'react-hot-toast'
+import { useAppContext } from "./context/AppContext";
 
 const App = () => {
   // The Navbar will be displayed on all pages but is needed to be hidden from Owner
@@ -20,6 +21,9 @@ const App = () => {
   const isOwnerPath = useLocation().pathname.includes("owner"); //This will return a Boolean
   // for value = True we'll hide Navbar.
 
+  // Getting the State from the Context File.
+  const {showHotelReg} = useAppContext();
+
   //  Now we've to create the routing for Home Page.
 
   return (
@@ -27,8 +31,7 @@ const App = () => {
       <Toster/>
       {/* when ever we will be on Owner Path then this Navbar will be hidden */}
       {!isOwnerPath && <Navbar />}
-     {false && <HotelReg/>}
-
+     {false && <HotelReg/>}  
 
       <div className="min-h-[70vh]">
         {/* within this div we've to create Route ; first import routes */}

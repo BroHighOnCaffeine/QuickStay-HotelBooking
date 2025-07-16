@@ -26,3 +26,6 @@ createRoot(document.getElementById('root')).render(
           </BrowserRouter>
       </ClerkProvider>,
 )
+
+
+// After adding the AppProvider we can access the variable , StateVariable and functions declared in the ContextFile
