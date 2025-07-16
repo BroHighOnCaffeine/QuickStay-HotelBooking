@@ -11,7 +11,7 @@ import Layout from "./pages/hotelOwner/Layout";
 import Dashboard from "./pages/hotelOwner/Dashboard";
 import AddRoom from "./pages/hotelOwner/AddRoom";
 import ListRoom from "./pages/hotelOwner/ListRoom";
-import {Toster} from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { useAppContext } from "./context/AppContext";
 
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <div>
-      <Toster/>
+      <Toaster/>
       {/* when ever we will be on Owner Path then this Navbar will be hidden */}
       {!isOwnerPath && <Navbar />}
      {showHotelReg && <HotelReg/>}  
@@ -38,9 +38,9 @@ const App = () => {
         {/* within this div we've to create Route ; first import routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/rooms" element={<AllRooms />} />
+          <Route path="/rooms" element={<AllRooms/>} />
           <Route path="/rooms/:id" element={<RoomDetails/>} />
-          <Route path="/my-bookings" element={<Mybooking />} />
+          <Route path="/my-bookings" element={<Mybooking/>} />
 
           {/* Creating new Route for -  */}
           <Route path="/owner" element={<Layout/>} >
