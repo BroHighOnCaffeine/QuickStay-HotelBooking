@@ -108,8 +108,11 @@ const {user, navigate, isOwner, setShowHotelReg } = useAppContext()
           className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${
             isScrolled ? "text-black" : "text-white"
           } transition-all`}
-          onClick={() => navigate("/owner")}
-        >
+          onClick={() => isOwner ? navigate("/owner") : setShowHotelReg(true)}
+          // Using this 'user' we will display different Events for This Button, 
+          // If it's Owner Then it will navigate to owner Dashboard else show a Registration Form.
+          >
+            
           { isOwner ? 'Dashboard' : 'List Your Hotel'} 
           {/* Here we will check isOwner Property , If it is True then Text DashBoard will Appear else List Your Hotel will Appear*/}
         </button> 
