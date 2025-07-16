@@ -42,7 +42,8 @@ const Navbar = () => {
   const location = useLocation();
 
 //  Getting the data from Context File.
-const {user, navigate } = useAppContext()
+const {user, navigate, isOwner, setShowHotelReg } = useAppContext()
+// Using isOwner we'll display diff buttons and using setShowHotelReg we'll display the Registration Form
 
   // Scroll Effect of background on NAVBAR in HomePage.
   //this effect must be only valid for HomePage and on rest of the Pages it must appear with White Background.
@@ -99,14 +100,22 @@ const {user, navigate } = useAppContext()
             />
           </a>
         ))}
-        <button
+
+        {/*  We will display this button when User is LogedIn */}
+
+        {user && (
+          <button
           className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${
             isScrolled ? "text-black" : "text-white"
           } transition-all`}
           onClick={() => navigate("/owner")}
         >
-          Dashboard
-        </button>
+          { isOwner ? 'Dashboard' : 'List Your Hotel'} 
+          {/* Here we will check isOwner Property , If it is True then Text DashBoard will Appear else List Your Hotel will Appear*/}
+        </button> 
+               )
+        }
+
       </div>
 
       {/* Desktop Right  */}
