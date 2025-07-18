@@ -11,7 +11,7 @@ const Testimonial = () => {
          <div className="flex flex-wrap items-center gap-6 mt-20"> 
             {/* Problem here👆🏻 in adjusting all reviews in a single row. tried justify-center but its not working. */}
 
-            {/* Mappin the Testimonial Data into the Website👇🏻 */}
+            {/* Mapping the Testimonial Data into the Website👇🏻 */}
                 {testimonials.map((testimonial) => (
                     <div key={testimonial.id} className=" bg-white p-6 rounded-xl">
                         <div className="flex items-center gap-3">

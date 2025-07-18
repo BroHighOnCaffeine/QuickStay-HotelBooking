@@ -18,7 +18,7 @@ const HotelReg = () => {
         try {
             // Here we Call the API to Register the Hotel
             event.preventDefault(); // This will Stop the Page from reloading whenever we are filling the Form
-            const {data} = await axios.post(`/api/hotels`, {name, contact, address, city} ,{headers: {Authorization : `Bearer ${await getToken()}` }} ) //API call  ;and Api response we'll get the data
+            const {data} = await axios.post(`/api/hotels/`, {name, contact, address, city} ,{headers: {Authorization : `Bearer ${await getToken()}` }} ) //API call  ;and Api response we'll get the data
             //                                Api endpoint,  data that we have to send , headers 
 
             // Checking the Data
