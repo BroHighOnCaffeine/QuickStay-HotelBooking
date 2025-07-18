@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { assets, cities } from '../assets/assets'
 import { useAppContext } from '../context/AppContext'
 
 const HotelReg = () => {
 
     const {setShowHotelReg} = useAppContext();
+
+    // State Variables to Get the Form Data
+    const[name, setName] = useState("")
+    const[address, setAddress] = useState("")
+    const[contact, setContact] = useState("")
+    const[city, setCity] = useState("")
 
   return (
     <div className='fixed top-0 bottom-0 left-0 right-0 z-100 flex items-center justify-center bg-black/70'>
@@ -62,3 +68,7 @@ const HotelReg = () => {
 }
 
 export default HotelReg
+
+
+// Here we'll make API Call using that we can REGISTER the Hotel
+// Before that we need to store the form data using the STATE VARIABLES
