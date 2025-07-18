@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { assets, cities } from '../assets/assets'
 import { useAppContext } from '../context/AppContext'
+import toast from 'react-hot-toast';
 
 const HotelReg = () => {
 
-    const {setShowHotelReg} = useAppContext();
+    const {setShowHotelReg, axios, getToken, setIsOwner} = useAppContext();
 
     // State Variables to Get the Form Data
     const[name, setName] = useState("")
@@ -12,10 +13,33 @@ const HotelReg = () => {
     const[contact, setContact] = useState("")
     const[city, setCity] = useState("")
 
-  
+    // Creating the Handler Function
+    const onSubmitHandler = async (event)=>{
+        try {
+            // Here we Call the API to Register the Hotel
+            event.preventDefault(); // This will Stop the Page from reloading whenever we are filling the Form
+            const {data} = await axios.post(`/api/hotels`, {name, contact, address, city} ,{headers: {Authorization : `Bearer ${await getToken()}` }} ) //API call  ;and Api response we'll get the data
+            //                                Api endpoint,  data that we have to send , headers 
+
+            // Checking the Data
+            if(data.success){
+                toast.success(data.message) //data.message is the data we're getting from the API
+                setIsOwner(true)
+                // Now we've to Hide the Registration Form
+                setShowHotelReg(false);
+            }else{
+                toast.error(data.message)
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+            
+        }
+    }
 
   return (
-    <div className='fixed top-0 bottom-0 left-0 right-0 z-100 flex items-center justify-center bg-black/70'>
+    // due to onClick in this div , if we click anywhere else except Input feild then it will close the Form
+    <div onClick={ ()=> setShowHotelReg(false) } className='fixed top-0 bottom-0 left-0 right-0 z-100 flex items-center justify-center bg-black/70'>
 
         <form onSubmit={onSubmitHandler} onClick={ (e)=> e.stopPropagation() } className='flex bg-white rounded-xl max-w-4xl max-md:mx-2'>
             <img src={assets.regImage} alt="reg-image" className='w-1/2 rounded-xl hidden md:block' />
