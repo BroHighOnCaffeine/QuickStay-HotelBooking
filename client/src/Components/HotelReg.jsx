@@ -12,10 +12,12 @@ const HotelReg = () => {
     const[contact, setContact] = useState("")
     const[city, setCity] = useState("")
 
+  
+
   return (
     <div className='fixed top-0 bottom-0 left-0 right-0 z-100 flex items-center justify-center bg-black/70'>
 
-        <form className='flex bg-white rounded-xl max-w-4xl max-md:mx-2'>
+        <form onSubmit={onSubmitHandler} onClick={ (e)=> e.stopPropagation() } className='flex bg-white rounded-xl max-w-4xl max-md:mx-2'>
             <img src={assets.regImage} alt="reg-image" className='w-1/2 rounded-xl hidden md:block' />
             <div className='relative flex flex-col items-center md:w-1/2 p-8 md:p-10'>
 
@@ -74,3 +76,5 @@ export default HotelReg
 // Here we'll make API Call using that we can REGISTER the Hotel
 // Before that we need to store the form data using the STATE VARIABLES 
 // & we'll Insert these State Var. in the Input Feed (i.e. input tag)
+
+// In the Form Tag we'll add one OnSubmit Function.
