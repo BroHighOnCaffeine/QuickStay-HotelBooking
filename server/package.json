@@ -12,7 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@clerk/express": "^1.7.1",
+    "@clerk/clerk-sdk-node": "^4.13.23",
+    "@clerk/express": "^1.7.10",
     "body-parser": "^2.2.0",
     "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
