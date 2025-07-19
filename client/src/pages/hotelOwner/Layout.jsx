@@ -4,6 +4,16 @@ import Sidebar from '../../Components/hotelOwner/Sidebar'
 import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
+
+  // The DashBoard Should only be visible to user who is owner otherwise he'll be redirected to home page .
+ const {isOwner, navigate} = useAppContext()
+
+ useEffect( ()=>{
+  if(!isOwner){  // When User is not Owner
+    navigate('/')  //Navigate to Home.
+  }
+ }, [isOwner] )
+
   return (
     <div className='flex flex-col h-screen'>
 
