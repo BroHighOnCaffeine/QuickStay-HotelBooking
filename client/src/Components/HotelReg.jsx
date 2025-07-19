@@ -159,3 +159,7 @@ export default HotelReg;
 // & we'll Insert these State Var. in the Input Feed (i.e. input tag)
 
 // In the Form Tag we'll add one OnSubmit Function.
+
+
+
+// SuccessFully Hotel Authenticated and Registered and Data is Showing in DataBase
