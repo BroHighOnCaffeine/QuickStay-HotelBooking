@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import Title from "../../Components/Title";
 import { assets } from "../../assets/assets";
+import {useAppContext} from '../../context/AppContext'
 
 const AddRoom = () => {
+
+  // Here we've to get Some Data 
+  const {axios ,getToken} = useAppContext()   // Using axios to make the API CAll ,, getToken to get the Autherization Token
+
+
   // Creating a State Variable which will Store the Form Data
 
   const [images, setImages] = useState({
@@ -24,8 +30,11 @@ const AddRoom = () => {
     }
   });
 
+ 
+
   return (
-    <form>
+    // Adding onSubmitHandler Function in the Form
+    <form onSubmit={onSubmitHandler}>  
       <Title
         align="left"
         font="outfit"
