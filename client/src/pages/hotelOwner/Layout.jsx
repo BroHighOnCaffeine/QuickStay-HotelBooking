@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../../Components/hotelOwner/Navbar'
 import Sidebar from '../../Components/hotelOwner/Sidebar'
 import { Outlet } from 'react-router-dom'
+import { useAppContext } from '../../context/AppContext'  // adjust path as needed
+
 
 const Layout = () => {
 

@@ -63,7 +63,7 @@ const AddRoom = () => {
             images[key] && formData.append('images' , images[key])
       } )
 
-      // Now we have the Form data So we Can API
+     // Now we have the Form data So we Can API
       const {data} = await axios.post('/api/rooms/' , formData, {headers : {Authorization :`Bearer ${await getToken}`}})
 
       // Checking the data Response
