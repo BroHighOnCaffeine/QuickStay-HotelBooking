@@ -53,7 +53,7 @@ const AddRoom = () => {
       formData.append('pricePerNight', inputs.pricePerNight)
 
       // converting amenties to array & keeping only enabled amenities
-      const amenities = Object.keys(input.amenities).filter(key => input.amenities[key])
+      const amenities = Object.keys(inputs.amenities).filter(key => inputs.amenities[key])
 
       // Appending these amenities in the Form Data
       formData.append('amenities', JSON.stringify(amenities))
