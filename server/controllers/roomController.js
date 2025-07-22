@@ -34,10 +34,10 @@ export const createRoom = async (req, res) => {
                     amenities: JSON.parse(amenities),
                     images
                 })
-                res.josn({success:true , message:"Room Created Successfully"})
+                res.json({success:true , message:"Room Created Successfully"})
 
     } catch (error) {
-         res.josn({success:false , message: error.message})
+         res.json({success:false , message: error.message})
     }
 
 }
