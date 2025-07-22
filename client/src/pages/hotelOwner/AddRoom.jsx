@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Title from "../../Components/Title";
 import { assets } from "../../assets/assets";
 import {useAppContext} from '../../context/AppContext'
+import toast from "react-hot-toast";
 
 const AddRoom = () => {
 
@@ -30,7 +31,73 @@ const AddRoom = () => {
     }
   });
 
- 
+  // Creating One more State Variable
+  const [loading, setLoading] = useState(false)
+
+  
+  //Creating onSubmitHandler Function
+  const onSubmitHandler = async (e) => {
+    e.preventDefault()  //Prevents Page from Reloading
+
+    // Check if All Inputs are Filled
+    if(!inputs.roomType || !inputs.pricePerNight || !inputs.amenities || !Object.values(images).some(image => image) ){
+      toast.error("Please Fill in All the Details")
+      return;
+    }
+
+    // Now when we've All the Data available
+    setLoading(true);
+    try {
+      const formData = new FormData()
+      formData.append('roomType', inputs.roomType)
+      formData.append('pricePerNight', inputs.pricePerNight)
+
+      // converting amenties to array & keeping only enabled amenities
+      const amenities = Object.keys(input.amenities).filter(key => input.amenities[key])
+
+      // Appending these amenities in the Form Data
+      formData.append('amenities', JSON.stringify(amenities))
+
+      // Adding images to Form Data
+      Object.keys(images).forEach( (key)=>{
+            images[key] && formData.append('images' , images[key])
+      } )
+
+      // Now we have the Form data So we Can API
+      const {data} = await axios.post('/api/rooms/' , formData, {headers : {Authorization :`Bearer ${await getToken}`}})
+
+      // Checking the data Response
+      if(data.success){
+        toast.success(data.message) // We are getting this data from the API Response
+
+        // Now we have to clear the input Fields Once Data is sent in database
+        setInputs({
+          roomType: '',
+          pricePerNight: 0,
+          amenities: {
+            'free Wifi' : false,
+            'free Breakfast' : false,
+            'Room Service' : false,
+            'Mountain View' : false,
+            'Pool Access' : false
+
+          }
+        })
+
+        // Now we have to reset the Selected Images
+        setImages({1: null,2: null,3: null,4: null, })
+      }else{
+        toast.error(data.message)
+      }
+
+
+    } catch (error) {
+      toast.error(error.message)
+    }finally{
+      setLoading(false); // In this file in upside we've made setLoading = True , here we are making it false
+    }
+
+  }
 
   return (
     // Adding onSubmitHandler Function in the Form
