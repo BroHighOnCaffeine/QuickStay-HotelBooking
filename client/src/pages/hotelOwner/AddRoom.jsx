@@ -64,7 +64,7 @@ const AddRoom = () => {
       } )
 
      // Now we have the Form data So we Can API
-      const {data} = await axios.post('/api/rooms/' , formData, {headers : {Authorization :`Bearer ${await getToken}`}})
+      const {data} = await axios.post('/api/rooms/' , formData, {headers : {Authorization :`Bearer ${await getToken()}`}})
 
       // Checking the data Response
       if(data.success){
