@@ -48,7 +48,7 @@ export const getRooms = async (req, res) => {
 
     try {
         // Here it will find the room where isAvailable Property is True and slo it will add the hotel in it . Instead of just adding the hotel id it will add the entire hotel data
-      const rooms =  await Room.find({isavailable : true}).populate({
+      const rooms =  await Room.find({isAvailable : true}).populate({
         path:'hotel',
         populate: {
             path:'owner', // this will add the owner Image data in the room data
@@ -61,7 +61,7 @@ export const getRooms = async (req, res) => {
         
     } catch (error) {
 
-        res.json({success: false , meassage : error.message});
+        res.json({success: false , message : error.message});
         
     }
     
@@ -98,7 +98,7 @@ export const toggleRoomAvailability = async (req, res) => {
 
         res.json({success:true , message: "Room Availability Updated"});
     } catch (error) {
-        res.json({success:fasle , message: error.message});
+        res.json({success:false , message: error.message});
         
     }
 }
