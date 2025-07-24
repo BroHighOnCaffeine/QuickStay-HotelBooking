@@ -28,11 +28,30 @@ const ListRoom = () => {
 
   }
 
+  // Toggle Availability of the Room
+  const toggleAvailability = async (roomID) => {
+        //Making API Call
+        const {data} =await axios.post('/api/rooms/toggle-availability', {roomID}, {headers : {Authorization :`Bearer ${await getToken()}`}} ) 
+        // After this API Call we'll get the response data
+
+        // Checking Response Data
+        if (data.success){
+          toast.success(data.message)
+          fetchRooms()
+          
+        }else{
+           toast.error(data.message)
+
+        }
+
+  }
+
+
+
   // We have to use this fetchRooms() whenerver the page gets Reloaded
   useEffect(()=>{ 
     if(user){// Whenever the user is available
       fetchRooms() //  Whenever the page gets reloaded this function will be called .
-
     }
   }, [user])
 
