@@ -1,13 +1,40 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { roomsDummyData } from '../../assets/assets'
 import Title from '../../Components/Title'
+import { useAppContext } from '../../context/AppContext'
+import toast from 'react-hot-toast'
 
 const ListRoom = () => {
 
   // Creating a State Variable 
-  const [rooms, setRooms] = useState(roomsDummyData)
+  const [rooms, setRooms] = useState([]) //Removing dummy data from here and adding an empty array
 
+  // Getting axios,getToken and user from context
+  const {axios, user, getToken} = useAppContext()
+
+  // Creating a function that will fetch the room. i.e Fetch Rooms of the Hotel Owner
+  const fetchRooms = async ()=>{
+    try {
+      const {data} = await axios.get('/api/rooms/owner', {headers : {Authorization :`Bearer ${await getToken()}`}} ) // After this we need to check the response data
+        if (data.success) {
+          setRooms(data.rooms)
+        }else{
+          toast.error(data.message)
+        }
+        
+    } catch (error) {
+      toast.error(error.message)
+    }
+
+  }
+
+  // We have to use this fetchRooms() whenerver the page gets Reloaded
+  useEffect(()=>{ 
+    if(user){// Whenever the user is available
+      fetchRooms() //  Whenever the page gets reloaded this function will be called .
+
+    }
+  }, [user])
 
 
   return (
