@@ -1,13 +1,39 @@
 import React, { useState } from 'react'
 import Title from '../../Components/Title'
-import { assets, dashboardDummyData } from '../../assets/assets'
+import { assets,  } from '../../assets/assets'
+import {useAppContext} from '../../context/AppContext'
 
 const Dashboard = () => {
 
 
+  const {currency, user, getToken, toast, axios} = useAppContext();
+
   // Making a State variable 
-  const [dashboardData , setDashboardData] =  useState(dashboardDummyData) ;
+  const [dashboardData , setDashboardData] =  useState({
+    bookings: [],
+    totalBookings: 0,
+    totalRevenue : 0,
+  }) ;
   // now we can use this data
+
+
+  // Making the API Call
+  const fetchDashboardData = async () => {
+    try {
+      const {data} = await axios.get('/api/bookings/hotel', {headers : {Authorization :`Bearer ${await getToken()}`}})
+
+      // Checking the Response Data
+      if (data.success) {
+        setDashboardData(data.dashboardData) // We've set here the dashboardData that we're getting from the Api
+        
+      }else{
+          toast.error(data.message)
+      }
+      
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
 
 
   return (
