@@ -19,7 +19,7 @@ roomRouter.get('/owner' , protect ,getOwnerRooms ) // Here we will get RoomData 
 //getOwnerRooms is a Controller Function
 
 // Route for toggleAvailablity
-roomRouter.post('/toggle-availablity' , protect , toggleRoomAvailability ) //In the Body we will send the Current Status
+roomRouter.post('/toggle-availability' , protect , toggleRoomAvailability ) //In the Body we will send the Current Status
 
 export default roomRouter ;
 
