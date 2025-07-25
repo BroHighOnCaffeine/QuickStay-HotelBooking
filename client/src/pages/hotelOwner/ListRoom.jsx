@@ -29,20 +29,23 @@ const ListRoom = () => {
   }
 
   // Toggle Availability of the Room
-  const toggleAvailability = async (roomID) => {
+  const toggleAvailability = async (roomId) => {
         //Making API Call
-        const {data} =await axios.post('/api/rooms/toggle-availability', {roomID}, {headers : {Authorization :`Bearer ${await getToken()}`}} ) 
+        const {data} = await axios.post('/api/rooms/toggle-availability', {roomId}, {headers : {Authorization :`Bearer ${await getToken()}`}} ) 
         // After this API Call we'll get the response data
 
-        // Checking Response Data
-        if (data.success){
-          toast.success(data.message)
-          fetchRooms()
-          
-        }else{
-           toast.error(data.message)
-
+        try {
+              // Checking Response Data
+            if (data.success){
+              toast.success(data.message)
+              fetchRooms()
+            }else{
+              toast.error(data.message)
         }
+        } catch (error) {
+          toast.error(error.message)
+        }
+       
 
   }
 
@@ -80,7 +83,7 @@ const ListRoom = () => {
 
             
             {
-              rooms.map((item , index)=>(
+              rooms.map((item, index)=>(
                 <tr key={index}>
                   <td className='py-3 px-4 text-gray-700 border-t border-gray-300'>{item.roomType}</td>
                   <td className='py-3 px-4 text-gray-700 border-t border-gray-300 max-sm:hidden'>{item.amenities.join(', ')}</td>
