@@ -10,7 +10,7 @@ import { useAppContext } from "../context/AppContext";
 const FeaturedDestinations = () => {
 
   const {rooms , navigate} = useAppContext() ;
-  
+
 
 // added a logic here 
   return rooms.length > 0 && (   // when we'll have any data in the rooms array  then only we'll display these HTML Tags
@@ -24,8 +24,8 @@ const FeaturedDestinations = () => {
 
     {/* Here in this div we've Mounted all the Hotel Cards */}
       <div className="flex flex-wrap items-center justify-center gap-6 mt-20">
-        {/* Using Dummy Hotel Data From Assets */}
-        {roomsDummyData.slice(0, 4).map((room, index) => (
+        {/* Displaying the rooms data using maps. */}
+        {rooms.slice(0, 4).map((room, index) => (
           <HotelCard key={room._id} room={room} index={index} />
         ))}
       </div>
