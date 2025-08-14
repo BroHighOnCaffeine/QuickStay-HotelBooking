@@ -30,6 +30,7 @@ export const AppProvider = ({ children }) => {
 
     // State Variable for Recent Searched Cities
     const [searchedCities, setSearchedCities] = useState([])
+    const [rooms, setRooms ] = useState([])  //using empty array here bcoz we can store multiple rooms
 
 
     // Now we Create Some Functions and using these Functions we'll FETCH the users and check the user roles also
