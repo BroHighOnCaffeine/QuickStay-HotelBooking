@@ -43,12 +43,13 @@ export const AppProvider = ({ children }) => {
             if (data.success) {
                 setRooms(data.rooms)
             } else {
-                toast.error(data.message) // displaying the data that we are gettting from the api
+                toast.error(data.message) // displaying the data message that we are gettting from the api
             }
         } catch (error) {
-            
+            toast.error(error.message) //
         }
-    }
+    }   // Next we have to execute this function whenever the function gets loaded; we'll do it using useEffect
+
 
 
     // Now we Create Some Functions and using these Functions we'll FETCH the users and check the user roles also
@@ -85,12 +86,21 @@ export const AppProvider = ({ children }) => {
         }
     },[user] )  // Here the array is k/a Dependency Array
 
+
+    // Adding one more useEffect for fetchRooms function , calling this function whever the component gets loaded
+     useEffect( ()=>{
+            fetchRooms(); 
+    }, [] ) // Here we've added a dependency array 
+            //Now we have to pass the room state and setter function- setRooms using value object
+
+
         // object
         const value ={
             currency , navigate, user, getToken, isOwner, setIsOwner,
             axios,
             showHotelReg, setShowHotelReg,
-            searchedCities, setSearchedCities
+            searchedCities, setSearchedCities,
+            rooms,setRooms  //now we can access rooms in any other component
             // Here we've Provided axios so that we can can access axios through AppContext.jsx File
         }
     return (
