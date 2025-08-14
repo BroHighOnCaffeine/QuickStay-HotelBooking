@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { assets, facilityIcons, roomsDummyData } from "../assets/assets";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import StarRating from "../Components/StarRating";
+import { useAppContext } from "../context/AppContext";
 
 // Creating a Component - CheckBox
 const CheckBox = ({ label, selected = false, onChange = () => {} }) => {
@@ -35,6 +36,14 @@ const RadioButton = ({ label, selected = false, onChange = () => {} }) => {
 };
 
 const AllRooms = () => {
+
+  const [searchParams, setSearchParams] = useSearchParams() // So from the URL we get the Search Paramenter
+
+  //Geting the room data from the AppContext
+  const{rooms , navigate, currency} = useAppContext();
+
+
+
   const roomTypes = ["Single Bed", "Double Bed", "Luxury Room", "Family Suite"];
 
   const priceRange = [
@@ -49,7 +58,6 @@ const AllRooms = () => {
     "Newest First",
   ];
 
-  const navigate = useNavigate();
 
   //   Now we have to hide the whole filter Section [column 2] in SmallerScreen [i.e. Mobile Screen] so we will first create a "state variable" for it . 👇🏻
   const [openFilters, setOpenFilters] = useState(false); //State Variable
