@@ -30,7 +30,19 @@ export const AppProvider = ({ children }) => {
 
     // State Variable for Recent Searched Cities
     const [searchedCities, setSearchedCities] = useState([])
+
+    // 
     const [rooms, setRooms ] = useState([])  //using empty array here bcoz we can store multiple rooms
+
+
+    // Now we'll create a function that will fetch data from the api and store it in the room state
+    const fetchRooms = async () => {
+        try {
+            const { data } = await axios.get   // using axios to make the API call & get method bcoz we dont have to send any thing in the body
+        } catch (error) {
+            
+        }
+    }
 
 
     // Now we Create Some Functions and using these Functions we'll FETCH the users and check the user roles also
