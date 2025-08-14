@@ -43,7 +43,6 @@ const AllRooms = () => {
   const{rooms , navigate, currency} = useAppContext();
 
 
-
   const roomTypes = ["Single Bed", "Double Bed", "Luxury Room", "Family Suite"];
 
   const priceRange = [
@@ -61,6 +60,17 @@ const AllRooms = () => {
 
   //   Now we have to hide the whole filter Section [column 2] in SmallerScreen [i.e. Mobile Screen] so we will first create a "state variable" for it . 👇🏻
   const [openFilters, setOpenFilters] = useState(false); //State Variable
+
+  // Creating two other state variables using that we can filter the Hotel List
+  const [selectedFilters , setSelectedFilters] = useState({ // adding object in useState & adding two property in this object.
+    
+                                                          roomType : [],
+                                                          priceRange : [],
+                                                          })
+
+
+  // Creating State variable for the filter - sortby
+  const [selectedSort , setSelectedSort] = useState('') //Initlizing it with empty string bcoz as the page loades the filter needs to be clear or unchecked
 
   return (
     <div className="flex flex-col-reverse lg:flex-row items-start justify-between pt-28 md:pt-35 px-4 md:px-16 1g:px-24 x1:px-32">
