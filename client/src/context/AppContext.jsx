@@ -38,7 +38,13 @@ export const AppProvider = ({ children }) => {
     // Now we'll create a function that will fetch data from the api and store it in the room state
     const fetchRooms = async () => {
         try {
-            const { data } = await axios.get   // using axios to make the API call & get method bcoz we dont have to send any thing in the body
+            const { data } = await axios.get('/api/rooms')   // using axios to make the API call & get method bcoz we dont have to send any thing in the body
+            //here we've to get the response ; So CHECKING the response
+            if (data.success) {
+                setRooms(data.rooms)
+            } else {
+                toast.error(data.message) // displaying the data that we are gettting from the api
+            }
         } catch (error) {
             
         }
