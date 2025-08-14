@@ -1,16 +1,19 @@
 // Mounting the HotelCard Component here.
 
 import React from "react";
-import { roomsDummyData } from "../assets/assets";
+
 import HotelCard from "./HotelCard";
 import Title from "./Title";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
 
 const FeaturedDestinations = () => {
 
-    const navigate = useNavigate() ;
+  const {rooms , navigate} = useAppContext() ;
+  
 
-  return (
+// added a logic here 
+  return rooms.length > 0 && (   // when we'll have any data in the rooms array  then only we'll display these HTML Tags
     //                                                         lg:px-15 is used for spacing .
     <div className='flex flex-col items-center px-6 md:px-16 lg:px-15 bg-slate-50 py-20'> 
 
