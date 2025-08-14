@@ -75,10 +75,32 @@ const AllRooms = () => {
   const [selectedSort , setSelectedSort] = useState('') //Initlizing it with empty string bcoz as the page loades the filter needs to be clear or unchecked
 
 
-  //Handle Changes for filters and Sort
+
+
+
+
+                            //Handle Changes for filters and Sort
 
   //Creating a Function so using that we can filter the list.
-  const handleFilterChange = (checked, value ,type) => {}
+                               // parameters
+  const handleFilterChange = (checked, value ,type) => {
+    // Using the setter function
+    setSelectedFilters( (prevFilters)=>{
+      const updatedFilters = {...prevFilters};   // " ... " is called Spread operator.
+      if (checked) {
+        // if the filter is checked then it will push the value here
+        updatedFilters[type].push(value);
+      }else{
+        updatedFilters[type] = updatedFilters[type].filter(item => item !=== value );
+      }
+      return updatedFilters ;
+    } )
+  }
+
+
+
+
+
 
   return (
     <div className="flex flex-col-reverse lg:flex-row items-start justify-between pt-28 md:pt-35 px-4 md:px-16 1g:px-24 x1:px-32">
