@@ -157,6 +157,11 @@ const handleSortChange = (sortOption) => {
           }
 
 
+          // Filter and sort rooms based onthe selected filtersand sort option
+          const filteredRooms = useMemo( () => {
+            return rooms.filter( room => matchesRoomType(room) && matchesPriceRange(room) && filterDestination(room) ).sort(sortRooms) ;
+          }, [rooms, selectedFilters , selectedSort, searchParams ] )
+
 
 
           
