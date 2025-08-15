@@ -116,6 +116,12 @@ const handleSortChange = (sortOption) => {
           //  Function to check if a room matches the selected price ranges
 
           const mactchesPriceRange = (room) => {
+            return selectedFilters.priceRange.length === 0 || selectedFilters.priceRange.some(range => {
+              const [min, max] = range.split(' to ').map(Number);
+
+                   // Now we've to get the rooms within the selected price range
+              return room.pricePerNight >= min && room.pricePerNight  <= max ;
+            } )
 
           }
 
