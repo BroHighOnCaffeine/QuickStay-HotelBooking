@@ -85,20 +85,25 @@ const AllRooms = () => {
                                // parameters
   const handleFilterChange = (checked, value ,type) => {
     // Using the setter function
-    setSelectedFilters( (prevFilters)=>{
+    setSelectedFilters( (prevFilters) => {
       const updatedFilters = {...prevFilters};   // " ... " is called Spread operator.
       if (checked) {
         // if the filter is checked then it will push the value here
         updatedFilters[type].push(value);
       }else{
-        updatedFilters[type] = updatedFilters[type].filter(item => item !=== value );
+        updatedFilters[type] = updatedFilters[type].filter(item => item !== value );
       }
       return updatedFilters ;
     } )
   }
 
+//  Creating function - Handle Sort Change to handle the sort changes
 
+const handleSortChange = (sortOption) => {
 
+  //setter function
+  setSelectedSort(sortOption);
+}
 
 
 
