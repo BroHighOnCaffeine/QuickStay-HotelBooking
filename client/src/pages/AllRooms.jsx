@@ -107,7 +107,7 @@ const handleSortChange = (sortOption) => {
 
 
           //  Function to check if a room matches the selected room types
-  const matchesroomtype = () => {
+  const matchesroomtype = (room) => {
     return selectedFilters.roomType.length === 0 || selectedFilters.roomType.includes(room.roomType) ;
   }
 
@@ -115,8 +115,8 @@ const handleSortChange = (sortOption) => {
 
           //  Function to check if a room matches the selected price ranges
 
-          const mactchesPriceRange = () => {
-            
+          const mactchesPriceRange = (room) => {
+
           }
 
 
