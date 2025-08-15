@@ -108,7 +108,7 @@ const handleSortChange = (sortOption) => {
 
           //  Function to check if a room matches the selected room types
   const matchesroomtype = () => {
-    return selectedFilters.roomType.length
+    return selectedFilters.roomType.length === 0 || selectedFilters.roomType.includes(room.roomType) ;
   }
 
   return (
