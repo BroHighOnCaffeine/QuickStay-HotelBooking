@@ -111,6 +111,16 @@ const handleSortChange = (sortOption) => {
     return selectedFilters.roomType.length === 0 || selectedFilters.roomType.includes(room.roomType) ;
   }
 
+
+
+          //  Function to check if a room matches the selected price ranges
+
+          const mactchesPriceRange = () => {
+            
+          }
+
+
+
   return (
     <div className="flex flex-col-reverse lg:flex-row items-start justify-between pt-28 md:pt-35 px-4 md:px-16 1g:px-24 x1:px-32">
       {/* we will divide this Page into two Parts - left and Right  */}
