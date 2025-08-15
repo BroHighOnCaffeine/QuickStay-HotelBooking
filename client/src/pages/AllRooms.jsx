@@ -135,6 +135,13 @@ const handleSortChange = (sortOption) => {
             if (selectedSort === 'Price High to Low') {
               return b.pricePerNight - a.pricePerNight  ;
             }
+
+            // sorting rooms based on dates added
+            if(selectedSort === 'Newest First') {
+              return new Date(b.createdAt) - new Date(a.createdAt)
+            }
+
+            return 0 ; 
           }
 
 
