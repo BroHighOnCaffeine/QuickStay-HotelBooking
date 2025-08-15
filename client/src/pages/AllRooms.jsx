@@ -145,6 +145,13 @@ const handleSortChange = (sortOption) => {
           }
 
 
+                             //    Filter Destination
+          // Function to filter the RoomList based on Search Parameter
+
+          const filterDestination = (room) => {}
+
+
+
 
   return (
     <div className="flex flex-col-reverse lg:flex-row items-start justify-between pt-28 md:pt-35 px-4 md:px-16 1g:px-24 x1:px-32">
