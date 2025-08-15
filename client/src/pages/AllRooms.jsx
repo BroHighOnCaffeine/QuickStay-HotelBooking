@@ -148,7 +148,18 @@ const handleSortChange = (sortOption) => {
                              //    Filter Destination
           // Function to filter the RoomList based on Search Parameter
 
-          const filterDestination = (room) => {}
+          const filterDestination = (room) => {
+            const destination = searchParams.get('destination') ;
+            if(!destination) {
+              return true ;
+            }
+            return room.hotel.city.toLowerCase().includes( destination.toLowerCase() )
+          }
+
+
+
+
+          
 
 
 
