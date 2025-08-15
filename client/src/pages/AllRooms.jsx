@@ -126,6 +126,18 @@ const handleSortChange = (sortOption) => {
           }
 
 
+          // Function to Sort Rooms based on the selected sort option.
+
+          const sortRooms = (a, b) => {                    // a & b are parameters here
+            if (selectedSort === 'Price Low to High') {
+              return a.pricePerNight - b.pricePerNight  ;
+            }
+            if (selectedSort === 'Price High to Low') {
+              return b.pricePerNight - a.pricePerNight  ;
+            }
+          }
+
+
 
   return (
     <div className="flex flex-col-reverse lg:flex-row items-start justify-between pt-28 md:pt-35 px-4 md:px-16 1g:px-24 x1:px-32">
