@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { assets, facilityIcons, roomsDummyData } from "../assets/assets";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import StarRating from "../Components/StarRating";
@@ -107,7 +107,7 @@ const handleSortChange = (sortOption) => {
 
 
           //  Function to check if a room matches the selected room types
-  const matchesroomtype = (room) => {
+  const matchesRoomType = (room) => {
     return selectedFilters.roomType.length === 0 || selectedFilters.roomType.includes(room.roomType) ;
   }
 
@@ -115,7 +115,7 @@ const handleSortChange = (sortOption) => {
 
           //  Function to check if a room matches the selected price ranges
 
-          const mactchesPriceRange = (room) => {
+          const matchesPriceRange = (room) => {
             return selectedFilters.priceRange.length === 0 || selectedFilters.priceRange.some(range => {
               const [min, max] = range.split(' to ').map(Number);
 
@@ -187,8 +187,8 @@ const handleSortChange = (sortOption) => {
       {/* For Right Side */}
       <div>
         <div className="filex flex-col items-start text-left">
-          <h1 className="font-playfair text-4x] md:text-[40px]">Hotel Rooms</h1>
-          <p ClassName="text-sm md:text-base text-gray-500/90 mt-2 max-w-174">
+          <h1 className="font-playfair text-4xl md:text-[40px]">Hotel Rooms</h1>
+          <p className="text-sm md:text-base text-gray-500/90 mt-2 max-w-174">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui
             aperiam optio facilis aliquam corrupti odit quo! Labore modi,
             consequuntur quidem placeat ipsam velit.
@@ -252,7 +252,7 @@ border-b border-gray-300 last:pb-30 last:border-0"
               </div>
               {/* Room Price Per Night  */}
               <p className="txt-xl font-medium text-gray-700">
-                Rs. {room.pricePerNight} /night
+                {currency} {room.pricePerNight} /night
               </p>
             </div>
           </div>
@@ -308,7 +308,7 @@ border-b border-gray-300 last:pb-30 last:border-0"
           <div className="px-5 pt-5">
             <p className="font-medium text-gray-800 pb-2">Price Range</p>
             {priceRange.map((range , index)=>(
-                <CheckBox key={index} label={`${currency} ${range}`} selected={selectedFilters.priceRange.includes(range)} onChange={ (checked) => handleFilterChange(checked, range , 'priceRange') }/>
+                <CheckBox key={index} label={`${currency} ${range}`}  selected={selectedFilters.priceRange.includes(range)} onChange={ (checked) => handleFilterChange(checked, range , 'priceRange') }/>
             ))}
           </div>
 
