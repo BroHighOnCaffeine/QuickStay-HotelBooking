@@ -164,6 +164,14 @@ const handleSortChange = (sortOption) => {
 
           // Clear all filters 
           const clearFilters = () => {
+            setSelectedFilters({
+              roomType : [] ,
+              priceRange : [] ,
+            });
+
+            setSelectedSort('');
+
+            setSearchParams({}) ;
             
           }
 
