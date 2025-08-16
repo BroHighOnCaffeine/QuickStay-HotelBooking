@@ -172,7 +172,7 @@ const handleSortChange = (sortOption) => {
             setSelectedSort('');
 
             setSearchParams({}) ;
-            
+
           }
 
           
@@ -195,7 +195,10 @@ const handleSortChange = (sortOption) => {
           </p>
         </div>
 
-        {roomsDummyData.map((room) => (
+
+       {/* Changing roomDummyDataa to filtered rooms   */}
+       {/* Now only Filtered rooms will be displayed here . */}
+        {filteredRooms.map((room) => (
           <div
             key={room._id}
             className="flex flex-col md:flex-row items-start py-10 gap-6
