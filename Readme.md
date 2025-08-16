@@ -12,6 +12,7 @@ https://quick-stay-hotel-booking-backend.vercel.app
 
 # Project Structure
 
+<pre> ```
 
 ├── .DS_Store
 ├── .gitignore
@@ -12282,3 +12283,4 @@ quot;;
 
 
 --------------------------------------------------------------------------------
+```</pre>
