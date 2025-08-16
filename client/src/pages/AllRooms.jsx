@@ -46,7 +46,7 @@ const AllRooms = () => {
   const roomTypes = ["Single Bed", "Double Bed", "Luxury Room", "Family Suite"];
 
   const priceRange = [
-    "O to 500",
+    "0 to 500",
     "500 to 1000",
     "1000 to 2000",
     "2000 to 3000",
@@ -129,10 +129,10 @@ const handleSortChange = (sortOption) => {
           // Function to Sort Rooms based on the selected sort option.
 
           const sortRooms = (a, b) => {                    // a & b are parameters here
-            if (selectedSort === 'Price Low to High') {
+            if (selectedSort === 'price Low to High') {
               return a.pricePerNight - b.pricePerNight  ;
             }
-            if (selectedSort === 'Price High to Low') {
+            if (selectedSort === 'price High to Low') {
               return b.pricePerNight - a.pricePerNight  ;
             }
 
