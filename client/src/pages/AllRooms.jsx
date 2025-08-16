@@ -299,7 +299,7 @@ border-b border-gray-300 last:pb-30 last:border-0"
           <div className="px-5 pt-5">
             <p className="font-medium text-gray-800 pb-2">Popular Filters</p>
             {roomTypes.map((room, index)=>(
-                <CheckBox key={index} label={room}/>
+                <CheckBox key={index} label={room} selected={selectedFilters.roomType.includes(room)} onChange={ (checked) => handleFilterChange(checked, room , 'roomType') } />
             ))}
 
             {/* We will keep the FilterOption in an Array and use the CheckBox Component also we'll need the Radio Buttons*/}
@@ -308,7 +308,7 @@ border-b border-gray-300 last:pb-30 last:border-0"
           <div className="px-5 pt-5">
             <p className="font-medium text-gray-800 pb-2">Price Range</p>
             {priceRange.map((range , index)=>(
-                <CheckBox key={index} label={`$ ${range}`}/>
+                <CheckBox key={index} label={`${currency} ${range}`} selected={selectedFilters.priceRange.includes(range)} onChange={ (checked) => handleFilterChange(checked, range , 'priceRange') }/>
             ))}
           </div>
 
