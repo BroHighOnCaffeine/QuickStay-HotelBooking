@@ -162,7 +162,10 @@ const handleSortChange = (sortOption) => {
             return rooms.filter( room => matchesRoomType(room) && matchesPriceRange(room) && filterDestination(room) ).sort(sortRooms) ;
           }, [rooms, selectedFilters , selectedSort, searchParams ] )
 
-
+          // Clear all filters 
+          const clearFilters = () => {
+            
+          }
 
           
 
