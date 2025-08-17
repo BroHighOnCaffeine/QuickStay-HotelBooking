@@ -1,6 +1,6 @@
 // Mounting the HotelCard Component here.
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import HotelCard from "./HotelCard";
 import Title from "./Title";
@@ -22,6 +22,13 @@ const filterHotels = () => {                                      // Here room i
 
                 setRecommended(filteredHotels) ;
 }
+
+//  Calling this function whenever the page gets loaded
+useEffect( () => { 
+                    // Function Call
+                filterHotels();             
+
+}, [rooms, searchedCities] ) //here rooms & searchedCities are added in the dependency array
 
 
 // added a logic here 
