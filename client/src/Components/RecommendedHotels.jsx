@@ -14,6 +14,15 @@ const RecommendedHotels = () => {
 //   Creating State Variable
  const [recommended , setRecommended] = useState([])  // Initializing with empty array
 
+//   Creating Function - filterHotels  - to filter the Hotels For the Particular City that is avilable in the searchedCities Array
+const filterHotels = () => {                                      // Here room is passed as parameter
+    const filteredHotels = rooms.slice().filter( room => searchedCities.includes(room.hotel.city)  )
+
+                // setting this hotels in the setRecommended
+
+                setRecommended(filteredHotels) ;
+}
+
 
 // added a logic here 
   return rooms.length > 0 && (   // when we'll have any data in the rooms array  then only we'll display these HTML Tags
