@@ -18,6 +18,14 @@ const Hero = () => {
         // After clicking this Search Button the User should be Redirected to the AllRooms Page
         navigate(`/rooms?destination=${destination}`)  // ? is added to add the search parameters. // destination is a state variable
 
+        // Setting the city name in the variable searchedCities , making API Call for this 
+        // 
+        // Call API to save recent Searched Cities in the database
+        await axios.post('api/user/store-recent-search' , {recentSearchedCity : destination} , {headers : {Authorization: `Bearer ${await getToken() }` } } )
+        //                    path                      , data to send                       , object - use to send headers
+
+
+        // now we have to store this searched city in the state variable that we have created in the Context File
         
     }
 
