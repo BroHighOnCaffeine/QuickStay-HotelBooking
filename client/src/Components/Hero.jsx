@@ -1,7 +1,16 @@
 import React from "react";
 import { assets, cities } from "../assets/assets";
+import { useAppContext } from "../context/AppContext";
 
 const Hero = () => {
+
+
+    // Getting some State and Functions through getAppContext
+    const { navigate, getToken ,axios , setSearchesCities } = useAppContext() ;
+
+    // Storing the city name in State-variable
+    const [destination, setDestination] = useState("")   //Empty string
+
   return (
     <div className='flex flex-col item-start justify-center px-6 md:px16 lg:px-24 xl:px-32 text-white bg-[url("/src/assets/heroImage.png")] bg-no-repeat bg-cover bg-center h-screen'>
       <p className="bg-[#49B9FF]/50 px-3.5 py-1 rounded-full mt-20 1 w-fit">The Ultimate Hotel Experience</p>
