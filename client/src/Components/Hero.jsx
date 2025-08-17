@@ -21,11 +21,26 @@ const Hero = () => {
         // Setting the city name in the variable searchedCities , making API Call for this 
         // 
         // Call API to save recent Searched Cities in the database
-        await axios.post('api/user/store-recent-search' , {recentSearchedCity : destination} , {headers : {Authorization: `Bearer ${await getToken() }` } } )
+        await axios.post('api/user/store-recent-search' , {recentSearchedCity : destination} , {headers : {Authorization: `Bearer ${await getToken() }` } } ) ;
         //                    path                      , data to send                       , object - use to send headers
 
 
         // now we have to store this searched city in the state variable that we have created in the Context File
+
+        // Add Destination to Searched Cities   max 3 recent Searched Cities
+        setSearchesCities( (prevSearchedCities)=>{
+
+            const updatedSearchedCities = [...prevSearchedCities , destination]
+
+            // when length gets more than 3 , we've to remove 1 entry
+            if(updatedSearchedCities.length > 3){
+
+                updatedSearchedCities.shift() ;
+
+            }
+            return updatedSearchedCities ;
+
+        } )
         
     }
 
